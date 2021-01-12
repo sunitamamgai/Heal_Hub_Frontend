@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+
+.row1 {
+  height: 50px;
+}
+
+.row2 {
+  height: 100%;
+  /* background-color: #61dafb; */
+}
+
+.logo {
+  background-color: #0f3057;
+  color: white;
+}
+
+.menu_bar {
+  padding: 0%;
+  background-color: #00587a;
+}
+
+.content_body {
+  background-color: #e7e7de;
+}
