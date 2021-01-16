@@ -44,6 +44,9 @@
 
 .row2 {
   height: 100%;
+  display: inline-block;
+  align-items: stretch ;
+  flex-wrap: nowrap;
   /* background-color: #61dafb; */
 }
 
@@ -59,4 +62,8 @@
 
 .content_body {
   background-color: #e7e7de;
+}
+
+.nav-item {
+  margin: 3px;
 }

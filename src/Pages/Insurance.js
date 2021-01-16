@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import InsuranceCard from "../components/InsuranceCard";
 import InsuranceForm from "../Forms/InsuranceForm";
 import axios from "axios";
 import { Divider } from "@material-ui/core";
-
+import { loginContext } from "../App";
 
 const Insurance = () => {
+  const { state, dispatch } = useContext(loginContext);
+
   const [insurances, setInsurances] = useState([]);
 
   const [insuranceInfo, setInsuranceInfo] = useState({
@@ -47,6 +49,7 @@ const Insurance = () => {
       .post("http://127.0.0.1:8000/api/v1/InsuranceInfo/", insuranceInfo, {
         headers: {
           "Content-Type": "application/json",
+          "Authorization": "Token " + state.token,
         },
       })
       .then((response) => {
@@ -60,11 +63,17 @@ const Insurance = () => {
   //AXIOS GET REQUEST
   useEffect(async function getData() {
     const response = await axios.get(
-      `http://127.0.0.1:8000/api/v1/InsuranceInfo/`
+      `http://127.0.0.1:8000/api/v1/InsuranceInfo/`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Token " + state.token,
+        },
+      }
     );
     console.log(response.data);
     setInsurances(response.data);
-  }, []);
+  }, [state.token]);
 
   //AXIOS DELETE REQUEST
   const deleteItem = async (id) => {
@@ -93,9 +102,17 @@ const Insurance = () => {
     <>
       <div className="container">
         <h1>Insurance Information</h1>
-        <button onClick={toggleShowModal} class="btn btn-primary">Add</button>
-        <InsuranceForm showModal={showModal} setShowModal={setShowModal} handleSubmit={handleSubmit} handleInputChange={handleInputChange} insuranceInfo={insuranceInfo} />
-    
+        <button onClick={toggleShowModal} className="btn btn-primary">
+          Add
+        </button>
+        <InsuranceForm
+          showModal={showModal}
+          setShowModal={setShowModal}
+          handleSubmit={handleSubmit}
+          handleInputChange={handleInputChange}
+          insuranceInfo={insuranceInfo}
+        />
+
         <Divider />
 
         <table

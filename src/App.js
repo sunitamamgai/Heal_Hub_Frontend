@@ -1,33 +1,76 @@
-import logo from "./logo.svg";
 import "./App.css";
+import UserScreen from "./Screens/UserScreen";
+import { useEffect } from "react";
+import OnboardingScreen from "./Screens/OnboardingScreen";
 import Navbar from "./Navbar";
-import Menu from "./Menu";
-import { Switch, Route } from "react-router-dom";
-import Dashboard from "./Pages/Dashboard";
-import Profile from "./Pages/Profile";
-import Insurance from "./Pages/Insurance";
+import React from "react";
+
+export const loginContext = React.createContext();
+
+const initialState = {
+  isAuthenticated: localStorage.getItem('token') ? true : false,
+  user: localStorage.getItem('user') ? localStorage.getItem('user') : null,
+  token: localStorage.getItem('token') ? localStorage.getItem('token') : null,
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "LOGIN":
+      localStorage.setItem("user", JSON.stringify(action.payload.user));
+      localStorage.setItem("token", JSON.stringify(action.payload.token));
+
+      return {
+        ...state,
+        isAuthenticated: true,
+        user: action.payload.user,
+        token: action.payload.token,
+      };
+    case "LOGOUT":
+      localStorage.clear();
+      return {
+        ...state,
+        isAuthenticated: false,
+        user: null,
+      };
+    case "REFRESH":
+      return {
+        ...state,
+        isAuthenticated: true,
+        user: action.payload.user,
+        token: action.payload.token
+      }
+
+    default:
+      return state;
+  }
+};
+
+
 
 function App() {
+  const [state, dispatch] = React.useReducer(reducer, initialState);
+  
+  useEffect(
+    () => {
+    },
+    [state.isAuthenticated]
+  );
+
   return (
     <>
-      <div className="body_container">
-        <div className="row1 row">
-          <div className="logo col-2">HEALHUB</div>
-          <div className="col">PORTAL</div>
-        </div>
-        <div className="row2 row">
-          <div className="menu_bar col-2">
-            <Menu />
-          </div>
-          <div className="content_body col">
-            <Switch>
-              <Route exact path="/dashboard" component={Dashboard} />
-              <Route exact path="/profile" component={Profile} />
-              <Route exact path="/insurance" component={Insurance} />
-            </Switch>
+      <loginContext.Provider
+        value={{
+          state,
+          dispatch,
+        }}
+      >
+        <div className="container">
+          <Navbar/>
+          <div className="container">
+            {state.isAuthenticated ? <UserScreen /> : <OnboardingScreen />}
           </div>
         </div>
-      </div>
+      </loginContext.Provider>
     </>
   );
 }
