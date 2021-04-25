@@ -80,7 +80,8 @@ const Insurance = () => {
     await axios
       .delete(
         "http://127.0.0.1:8000/api/v1/InsuranceInfo/" + JSON.stringify(id),
-        { data: { id: id } }
+        { data: { id: id }
+       }
       )
       .then((res) => {
         console.log(res);
@@ -128,6 +129,7 @@ const Insurance = () => {
               <th scope="col">Provider</th>
               <th scope="col">Valid Till</th>
               <th scope="col">Policy Name</th>
+              <th scope="col">Policy Number</th>
               <th scope="col"></th>
             </tr>
           </thead>

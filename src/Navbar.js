@@ -10,6 +10,7 @@ const Navbar = () => {
     dispatch({
       type: "LOGOUT",
     });
+
   };
 
   const loginHandler = () => {
@@ -18,7 +19,6 @@ const Navbar = () => {
 
   return (
     <>
-    {console.log(state.isAuthenticated)}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
@@ -26,8 +26,13 @@ const Navbar = () => {
           </a>
           <h2>HealHub</h2>
           <div className="">
-            <ul className="navbar-nav me-auto">
+            <ul className="navbar-nav me-auto searchrow">
               {state.isAuthenticated ? (
+                <>
+                <li className="nav-item white">
+                   <strong> Logged as : {state.user.username} </strong>
+                </li>
+                <br/>
                 <li className="nav-item">
                   <button
                     className="btn btn-primary btn-sm"
@@ -36,6 +41,7 @@ const Navbar = () => {
                     Logout
                   </button>
                 </li>
+               </> 
               ) : (
                 <>
                   <li className="nav-item">

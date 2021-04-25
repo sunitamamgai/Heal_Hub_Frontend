@@ -20,7 +20,8 @@ const InsuranceCard = (props) => {
         <td>{insuranceProvider}</td>
         <td>{validTill}</td>
         <td>{policyName}</td>
-        <td>
+        <td>{policyNumber}</td>
+        {/* <td>
           <button
             className="btn-sm btn-danger"
             type="submit"
@@ -28,7 +29,7 @@ const InsuranceCard = (props) => {
           >
             Delete
           </button>
-        </td>
+        </td> */}
       </tr>
     </>
   );

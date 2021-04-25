@@ -1,6 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { loginContext } from "../App";
+import { Redirect } from "react-router-dom";
+import ErrorScreen from "./ErrorScreen";
+import AuthScreen from "./AuthScreen";
 
 const LoginScreen = () => {
   const { state, dispatch } = useContext(loginContext);
@@ -9,6 +12,9 @@ const LoginScreen = () => {
     username: "",
     password: "",
   });
+
+  const [error, setError] = useState(false);
+  
 
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
@@ -32,77 +38,75 @@ const LoginScreen = () => {
       })
       .then((response) => {
         console.log(response);
-        // console.log(response.data);
-        // console.log(response.data.token);
-        // console.log(response.data.user.username);
+
         const user = response.data.user;
         const token = response.data.token;
-          dispatch({
-            type: "LOGIN",
-            payload: {user, token},
-          });
+
+        // if (!response.data.user["verified_field"]) {
+        //   setVerified(false);
+        // }
+
+        dispatch({
+          type: "LOGIN",
+          payload: { user, token },
+        });
       })
-      .catch((error) => console.log(error.response.request._response));
+      .catch((error) => {
+        console.log(error.response);
+        setError(true);
+      });
     console.log("Logged In");
   };
 
   useEffect(() => {
-    console.log(state.token);
+    setError(false);
   }, [state.user]);
 
   return (
     <>
-      <div className="container outer">
-        <div className="inner">
-          <form onSubmit={handleSubmit}>
-            <h3>Log in</h3>
+      {error ? (
+        <ErrorScreen />
+      ) : (
+        <div className="container">
+          <div className="inner">
+            <form onSubmit={handleSubmit}>
+              <h3>Log in</h3>
 
-            <div className="form-group">
-              <label>Username</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Enter username"
-                name="username"
-                onChange={onChangeHandler}
-                value={log.username}
-              />
-            </div>
-
-            <div className="form-group">
-              <label>Password</label>
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Enter password"
-                name="password"
-                onChange={onChangeHandler}
-                value={log.password}
-              />
-            </div>
-
-            {/* <div className="form-group">
-              <div className="custom-control custom-checkbox">
+              <div className="form-group">
+                <label>Username</label>
                 <input
-                  type="checkbox"
-                  className="custom-control-input"
-                  id="customCheck1"
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter username"
+                  name="username"
+                  onChange={onChangeHandler}
+                  value={log.username}
                 />
-                <label className="custom-control-label" htmlFor="customCheck1">
-                  Remember me
-                </label>
               </div>
-            </div> */}
 
-            <button type="submit" className="btn btn-dark btn-lg btn-block">
-              Sign in
-            </button>
-            <p className="forgot-password text-right">
-              Forgot <a href="#">password?</a>
-            </p>
-          </form>
+              <div className="form-group">
+                <label>Password</label>
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Enter password"
+                  name="password"
+                  onChange={onChangeHandler}
+                  value={log.password}
+                />
+              </div>
+
+              <button type="submit" className="btn btn-dark btn-lg btn-block">
+                Sign in
+              </button>
+
+              <p className="forgot-password text-right">
+                Forgot <a href="#">password?</a>
+              </p>
+            </form>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

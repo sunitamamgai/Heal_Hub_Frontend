@@ -2,8 +2,7 @@ import React from "react";
 import LoginScreen from "./LoginScreen";
 import RegisterScreen from "./RegisterScreen";
 import { Switch, Route, Link } from "react-router-dom";
-import { Button } from "@material-ui/core";
-
+import OTPScreen from "./OTPScreen";
 
 const OnboardingScreen = () => {
   return (
@@ -13,6 +12,7 @@ const OnboardingScreen = () => {
           <Switch>
             <Route exact path="/login" component={LoginScreen} />
             <Route exact path="/register" component={RegisterScreen} />
+            <Route exact path="/otpscreen" component={OTPScreen} />
           </Switch>
         </div>
       </div>

@@ -23,17 +23,17 @@ const PrescriptionCard = (props) => {
 
   return (
     <>
-      <tr>
-        <td>{ prescriberId }</td>
-        <td>{hospitalOrClinic}</td>
-        <td>{ doctorName }</td>
-        <td>{prescriptionDate}</td>
-        <td>{contactNumber}</td>
-        <td>{address}</td>
-        <td>{symptoms}</td>
-        <td>{medicines}</td>
-        <td>{notes}</td>
-        {/* <td>
+        <tr className="">
+          <td>{prescriberId}</td>
+          <td>{hospitalOrClinic}</td>
+          <td>{doctorName}</td>
+          <td>{prescriptionDate}</td>
+          <td>{contactNumber}</td>
+          <td>{address}</td>
+          <td>{symptoms}</td>
+          <td>{medicines}</td>
+          <td>{notes}</td>
+          {/* <td>
           <button
             className="btn-sm btn-danger"
             type="submit"
@@ -42,7 +42,7 @@ const PrescriptionCard = (props) => {
             Delete
           </button>
         </td> */}
-      </tr>
+        </tr>
     </>
   );
 };

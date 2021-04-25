@@ -67,3 +67,10 @@
 .nav-item {
   margin: 3px;
 }
+
+.error {
+  background-color: #282c34;
+  color: white;
+  padding: 40px;
+  text-align: center;
+}

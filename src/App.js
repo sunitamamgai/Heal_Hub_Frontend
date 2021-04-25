@@ -1,16 +1,17 @@
 import "./App.css";
 import UserScreen from "./Screens/UserScreen";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import OnboardingScreen from "./Screens/OnboardingScreen";
 import Navbar from "./Navbar";
 import React from "react";
+import AuthScreen from "./Screens/AuthScreen";
 
 export const loginContext = React.createContext();
 
 const initialState = {
-  isAuthenticated: localStorage.getItem('token') ? true : false,
-  user: localStorage.getItem('user') ? localStorage.getItem('user') : null,
-  token: localStorage.getItem('token') ? localStorage.getItem('token') : null,
+  isAuthenticated: localStorage.getItem("token") ? true : false,
+  user: localStorage.getItem("user") ? localStorage.getItem("user") : null,
+  token: localStorage.getItem("token") ? localStorage.getItem("token") : null,
 };
 
 const reducer = (state, action) => {
@@ -37,24 +38,25 @@ const reducer = (state, action) => {
         ...state,
         isAuthenticated: true,
         user: action.payload.user,
-        token: action.payload.token
-      }
+        token: action.payload.token,
+      };
 
     default:
       return state;
   }
 };
 
-
-
 function App() {
   const [state, dispatch] = React.useReducer(reducer, initialState);
-  
-  useEffect(
-    () => {
-    },
-    [state.isAuthenticated]
-  );
+
+  const [verify, setVerify] = useState(true);
+
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("user")) != null) {
+      setVerify(JSON.parse(localStorage.getItem("user"))["verified_field"]);
+      console.log(verify);
+    }
+  }, [state.isAuthenticated, state.user, verify]);
 
   return (
     <>
@@ -65,9 +67,17 @@ function App() {
         }}
       >
         <div className="container">
-          <Navbar/>
-          <div className="container">
-            {state.isAuthenticated ? <UserScreen /> : <OnboardingScreen />}
+          <Navbar />
+          <div className="" >
+            {verify ? (
+              state.isAuthenticated ? (
+                <UserScreen />
+              ) : (
+                <OnboardingScreen />
+              )
+            ) : (
+              <AuthScreen />
+            )}
           </div>
         </div>
       </loginContext.Provider>

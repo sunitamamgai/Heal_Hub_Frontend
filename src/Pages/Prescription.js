@@ -10,21 +10,6 @@ const Prescription = () => {
   const [prescriptions, setPrescriptions] = useState([
   ]);
 
-  // const [prescription, setPrescription] = useState({
-  //     addedBy:"",
-  //     prescriberId:"",
-  //     hospitalOrClinic:"",
-  //     doctorName:"",
-  //     prescriptionDate:"",
-  //     contactNumber:"",
-  //     address:"",
-  //     symptoms:"",
-  //     medicines:"",
-  //     notes:"",
-  //     prescriptionAttachment:"",
-  //     userId:"",
-  // });
-
   useEffect(async function getData() {
     const response = await axios.get(
       `http://127.0.0.1:8000/api/v1/PrescriptionInfoOfSpecificUser/`,{
@@ -58,14 +43,14 @@ const Prescription = () => {
           <br />
           <div className="row">
             <div className="col-xs-12">
-              <h2 className="justify-content-center">Medical History</h2>
+              <h2 className="">Medical History</h2>
             </div>
           </div>
           <div className="row">
             <address>
               <strong>Name: { state.user.username }</strong>
               <br />
-              Email Id: {state.user.email}
+              <strong>Email Id: {state.user.email}</strong>
               {/* <br />
               Address: 115, GF-3, Gyan Khand-2
               <br />
@@ -79,7 +64,7 @@ const Prescription = () => {
         </div>
         <hr />
         <table
-          className="col-8 table table-boardered"
+          className="col-8 table table-boardered table-striped"
           style={{
             maxHeight: 600,
             
@@ -88,8 +73,8 @@ const Prescription = () => {
           }}
           id="invoice-table"
         >
-          <thead>
-            <tr bgcolor="yellow">
+          <thead className="thead-dark">
+            <tr bgcolor="">
               <th scope="col">Prescriber Id</th>
               <th scope="col">Hospital or Clinic</th>
               <th scope="col">Doctor's Name</th>
