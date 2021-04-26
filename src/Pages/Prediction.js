@@ -205,35 +205,35 @@ const Prediction = () => {
           symptoms
         </strong>
         <hr />
-        <select name="s1" className="select-dropdown" onChange={handleChange}>
+        <select id="s1" name="s1" className="select-dropdown" onChange={handleChange}>
           {items.map((item) => (
             <option key={item.value} value={item.value}>
               {item.label}
             </option>
           ))}
         </select>
-        <select name="s2" className="select-dropdown" onChange={handleChange}>
+        <select id="s2" name="s2" className="select-dropdown" onChange={handleChange}>
           {items.map((item) => (
             <option key={item.value} value={item.value}>
               {item.label}
             </option>
           ))}
         </select>
-        <select name="s3" className="select-dropdown" onChange={handleChange}>
+        <select id="s3" name="s3" className="select-dropdown" onChange={handleChange}>
           {items.map((item) => (
             <option key={item.value} value={item.value}>
               {item.label}
             </option>
           ))}
         </select>
-        <select name="s4" className="select-dropdown" onChange={handleChange}>
+        <select id="s4" name="s4" className="select-dropdown" onChange={handleChange}>
           {items.map((item) => (
             <option key={item.value} value={item.value}>
               {item.label}
             </option>
           ))}
         </select>
-        <select name="s5" className="select-dropdown" onChange={handleChange}>
+        <select id="s5" name="s5" className="select-dropdown" onChange={handleChange}>
           {items.map((item) => (
             <option key={item.value} value={item.value}>
               {item.label}
@@ -255,8 +255,8 @@ const Prediction = () => {
         ) : (
           <div>
             <ul className="ul-list">
-              {diseases.map((disease) => (
-                <li className="li-list">{disease}</li>
+              {diseases.map((disease, index) => (
+                <li key={index} className="li-list">{disease}</li>
               ))}
             </ul>
           </div>

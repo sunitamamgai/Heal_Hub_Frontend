@@ -11,6 +11,9 @@ import { loginContext } from "../App";
 import ErrorScreen from "./ErrorScreen";
 import Prediction from "../Pages/Prediction";
 import PatientDetailAccess from "../Pages/PatientDetailAccess";
+import AccessById from "../Pages/AccessById";
+import AccessByFP from "../Pages/AccessByFP";
+import DetailAccess from "../Pages/DetailAccess";
 
 const UserScreen = () => {
   const { state, dispatch } = useContext(loginContext);
@@ -54,6 +57,10 @@ const UserScreen = () => {
               <Route exact path="/finduser" component={FindUser} />
               <Route exact path="/prediction" component={Prediction} />
               <Route exact path="/patientdetailaccess" component={PatientDetailAccess} />
+              <Route exact path="/patientdetailaccess/accessbyid" component={AccessById} />
+              <Route exact path="/patientdetailaccess/accessbyfp" component={AccessByFP} />
+              <Route exact path="/detailaccess" component={DetailAccess} />
+              
               <Route exact path="/error" component={ErrorScreen} />
             </Switch>
           </div>

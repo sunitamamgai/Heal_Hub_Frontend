@@ -53,6 +53,15 @@ const Menu = () => {
                   to="/patientdetailaccess"
                   style={{ textDecoration: "none" }}
                 >
+                  Access Verification Tool
+                </Link>
+              </li>
+              <li className="active btn">
+                <Link
+                  className="txt"
+                  to="/detailaccess"
+                  style={{ textDecoration: "none" }}
+                >
                   Patient Detail Access
                 </Link>
               </li>
