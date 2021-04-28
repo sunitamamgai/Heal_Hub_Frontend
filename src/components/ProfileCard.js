@@ -14,6 +14,7 @@ const ProfileCard = () => {
       );
       setData(res.data);
     }
+    
     fetchData();
   }, [url, state]);
 
