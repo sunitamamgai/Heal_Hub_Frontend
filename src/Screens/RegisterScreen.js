@@ -37,7 +37,7 @@ const RegisterScreen = () => {
     }
     setInput(input);
     await axios
-      .post("http://"+url+"/api/auth/register", input, {
+      .post(url+"/api/auth/register", input, {
         headers: {
           "Content-Type": "application/json",
         },

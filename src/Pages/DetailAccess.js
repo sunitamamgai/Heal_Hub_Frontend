@@ -35,7 +35,7 @@ const DetailAccess = () => {
     // setPres([]);
 
     await axios
-      .post("http://"+url+"/api/v1/accessprescription/", data, {
+      .post(url+"/api/v1/accessprescription/", data, {
         headers: {
           "Content-Type": "application/json",
         },

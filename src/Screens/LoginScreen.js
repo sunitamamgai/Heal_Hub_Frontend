@@ -32,7 +32,7 @@ const LoginScreen = () => {
     setLog(log);
     console.log(log);
     await axios
-      .post("http://"+url+"/api/auth/login", log, {
+      .post(url+"/api/auth/login", log, {
         headers: {
           "Content-Type": "application/json",
         },

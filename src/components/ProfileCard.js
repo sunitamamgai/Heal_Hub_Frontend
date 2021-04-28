@@ -9,7 +9,7 @@ const ProfileCard = () => {
 
   useEffect(async () => {
     let res = await axios.get(
-      "http://"+url+"/api/v1/PersonalInfoOfSpecificUser/" + state.user.id
+      url+"/api/v1/PersonalInfoOfSpecificUser/" + state.user.id
     );
     console.log(res);
     setData(res.data);

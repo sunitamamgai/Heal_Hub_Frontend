@@ -45,7 +45,7 @@ const Profile = () => {
 
     //AXIOS POST Request
     axios
-      .post("http://"+url+"/api/v1/PersonalInfo/", profile, {
+      .post(url+"/api/v1/PersonalInfo/", profile, {
         headers: {
           "Content-Type": "application/json",
         },

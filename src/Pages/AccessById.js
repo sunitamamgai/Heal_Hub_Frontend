@@ -50,7 +50,7 @@ const AccessById = () => {
     }
 
     let res = await axios
-      .post("http://"+url+"/api/v1/otpaccessverification/", otp, {
+      .post(url+"/api/v1/otpaccessverification/", otp, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -86,7 +86,7 @@ const AccessById = () => {
   };
 
   useEffect(async () => {
-    let res = await axios.get("http://"+url+"/api/auth/userlist");
+    let res = await axios.get(url+"/api/auth/userlist");
     //console.log(res.data);
     let temp = res.data
       .map((item) => item)

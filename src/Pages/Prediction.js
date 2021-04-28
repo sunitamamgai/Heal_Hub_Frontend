@@ -179,7 +179,7 @@ const Prediction = () => {
   const handleSubmit = async () => {
     console.log(symptoms);
     await axios
-      .post("http://"+url+"/api/v1/prediction/", symptoms, {
+      .post(url+"/api/v1/prediction/", symptoms, {
         headers: {
           "Content-Type": "application/json",
           Authorization: "Token " + state.token,

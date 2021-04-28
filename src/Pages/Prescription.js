@@ -14,7 +14,7 @@ const Prescription = () => {
   useEffect(
     async function getData() {
       const response = await axios.get(
-        `http://`+url+`/api/v1/PrescriptionInfoOfSpecificUser/`,
+        url+`/api/v1/PrescriptionInfoOfSpecificUser/`,
         {
           headers: {
             "Content-Type": "application/json",

@@ -39,7 +39,7 @@ const DProfileForm = ({
         event.preventDefault();
       }
 
-      await axios.post("http://"+url+"/api/v1/MedicalPractitionerInfo/", data, {
+      await axios.post(url+"/api/v1/MedicalPractitionerInfo/", data, {
         headers: {
           "Content-Type": "application/json",
           Authorization: "Token " + state.token,

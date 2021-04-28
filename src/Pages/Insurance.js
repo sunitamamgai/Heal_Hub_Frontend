@@ -51,7 +51,7 @@ const Insurance = () => {
 
     //AXIOS POST Request
     axios
-      .post("http://"+url+"/api/v1/InsuranceInfo/", insuranceInfo, {
+      .post(url+"/api/v1/InsuranceInfo/", insuranceInfo, {
         headers: {
           "Content-Type": "application/json",
           "Authorization": "Token " + state.token,
@@ -68,7 +68,7 @@ const Insurance = () => {
   //AXIOS GET REQUEST
   useEffect(async function getData() {
     const response = await axios.get(
-      `http://`+url+`/api/v1/InsuranceInfo/`,
+      url+`/api/v1/InsuranceInfo/`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -84,7 +84,7 @@ const Insurance = () => {
   const deleteItem = async (id) => {
     await axios
       .delete(
-        "http://"+url+"/api/v1/InsuranceInfo/" + JSON.stringify(id),
+        url+"/api/v1/InsuranceInfo/" + JSON.stringify(id),
         { data: { id: id }
        }
       )

@@ -35,7 +35,7 @@ const Prescribe = () => {
     console.log(prescription);
 
     await axios
-      .post("http://"+url+"/api/v1/PrescriptionInfo/", prescription, {
+      .post(url+"/api/v1/PrescriptionInfo/", prescription, {
         headers: {
           "Content-Type": "application/json",
           Authorization: "Token " + state.token,

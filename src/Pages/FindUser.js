@@ -14,7 +14,7 @@ const FindUser = () => {
   });
 
   useEffect(async () => {
-    let res = await axios.get("http://"+url+"/api/auth/userlist");
+    let res = await axios.get(url+"/api/auth/userlist");
     //console.log(res.data);
     let temp = res.data.map((item) => item).filter((mp) => {
         return mp.is_MP === false;

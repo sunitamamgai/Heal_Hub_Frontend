@@ -29,7 +29,7 @@ const OTPScreen = () => {
     console.log(otp);
 
     await axios
-      .post("http://"+url+"/api/auth/verify_otp", otp, {
+      .post(url+"/api/auth/verify_otp", otp, {
         headers: {
           "Content-Type": "application/json",
         },

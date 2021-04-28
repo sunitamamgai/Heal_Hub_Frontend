@@ -26,7 +26,7 @@ const DProfileCard = () => {
     console.log(state.user.id);
 
     const response = await axios.get(
-      `http://`+url+`/api/v1/MedicalPractitionerInfoDetail/` +
+      url+`/api/v1/MedicalPractitionerInfoDetail/` +
         state.user.id,
       {
         headers: {

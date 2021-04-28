@@ -46,7 +46,7 @@ const RequestCard = (props) => {
     console.log(data);
 
     let res = axios
-      .post("http://"+url+"/api/v1/accessverification/", data, {
+      .post(url+"/api/v1/accessverification/", data, {
         headers: {
           "Content-Type": "application/json",
         },
