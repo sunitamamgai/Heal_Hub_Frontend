@@ -1,9 +1,10 @@
 import React, { useState, useContext } from "react";
 //import useProfileForm from "../customHooks/useProfileForm";
 import axios from "axios";
-import { loginContext } from "../App";
+import { loginContext, urlContext } from "../App";
 
 const Profile = () => {
+  const url = useContext(urlContext);
   const [finalProfile, setFinalProfile] = useState({});
 
   const { state, dispatch } = useContext(loginContext);
@@ -44,7 +45,7 @@ const Profile = () => {
 
     //AXIOS POST Request
     axios
-      .post("http://127.0.0.1:8000/api/v1/PersonalInfo/", profile, {
+      .post("http://"+url+"/api/v1/PersonalInfo/", profile, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -57,11 +58,11 @@ const Profile = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="inner profile-scrollable-container">
         <div className="row">
           <form onSubmit={handleSubmit}>
             <div className="row input_field">
-              <div classname="col">
+              <div className="col">
                 <label>First Name</label>
                 <input
                   className="form-control "
@@ -157,8 +158,8 @@ const Profile = () => {
                   placeholder="optional"
                 />
               </div>
-              <div className="container">
-                <div className="row">
+              <div className="container input_field">
+                <div className="row input_field">
                   <label>Address Line 1</label>
                   <input
                     className="form-control"

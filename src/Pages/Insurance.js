@@ -3,9 +3,10 @@ import InsuranceCard from "../components/InsuranceCard";
 import InsuranceForm from "../Forms/InsuranceForm";
 import axios from "axios";
 import { Divider } from "@material-ui/core";
-import { loginContext } from "../App";
+import { loginContext, urlContext } from "../App";
 
 const Insurance = () => {
+  const url = useContext(urlContext);
   const { state, dispatch } = useContext(loginContext);
 
   const [insurances, setInsurances] = useState([]);
@@ -31,6 +32,10 @@ const Insurance = () => {
     setInsuranceInfo((prevData) => {
       return { ...prevData, [name]: value };
     });
+
+    setInsuranceInfo((prevData)=> {
+      return {...prevData, ["userId"]:state.user.token}
+    })
   };
 
   const handleSubmit = (event) => {
@@ -46,7 +51,7 @@ const Insurance = () => {
 
     //AXIOS POST Request
     axios
-      .post("http://127.0.0.1:8000/api/v1/InsuranceInfo/", insuranceInfo, {
+      .post("http://"+url+"/api/v1/InsuranceInfo/", insuranceInfo, {
         headers: {
           "Content-Type": "application/json",
           "Authorization": "Token " + state.token,
@@ -63,7 +68,7 @@ const Insurance = () => {
   //AXIOS GET REQUEST
   useEffect(async function getData() {
     const response = await axios.get(
-      `http://127.0.0.1:8000/api/v1/InsuranceInfo/`,
+      `http://`+url+`/api/v1/InsuranceInfo/`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -79,7 +84,7 @@ const Insurance = () => {
   const deleteItem = async (id) => {
     await axios
       .delete(
-        "http://127.0.0.1:8000/api/v1/InsuranceInfo/" + JSON.stringify(id),
+        "http://"+url+"/api/v1/InsuranceInfo/" + JSON.stringify(id),
         { data: { id: id }
        }
       )

@@ -68,17 +68,6 @@ const InsuranceForm = ({
                 autoComplete="off"
               />
             </div>
-            <div className="row input_field">
-              <label>User Id</label>
-              <input
-                className="form-control"
-                type="text"
-                name="userId"
-                onChange={handleInputChange}
-                value={insuranceInfo.userId}
-                autoComplete="off"
-              />
-            </div>
             <button className="btn-sm btn-primary" type="submit">
               Submit
             </button>

@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import {useHistory} from 'react-router-dom';
+import { urlContext } from "../App";
 
 const OTPScreen = () => {
-    let history = useHistory();
+
+  const url = useContext(urlContext);
+  
+  let history = useHistory();
   const [otp, setOtp] = useState({
     phone_number: localStorage.getItem("phone_number"),
     otp: "",
@@ -25,7 +29,7 @@ const OTPScreen = () => {
     console.log(otp);
 
     await axios
-      .post("http://127.0.0.1:8000/api/auth/verify_otp", otp, {
+      .post("http://"+url+"/api/auth/verify_otp", otp, {
         headers: {
           "Content-Type": "application/json",
         },

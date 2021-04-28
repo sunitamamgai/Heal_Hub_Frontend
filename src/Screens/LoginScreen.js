@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { loginContext } from "../App";
+import { loginContext, urlContext } from "../App";
 import { Redirect } from "react-router-dom";
 import ErrorScreen from "./ErrorScreen";
 import AuthScreen from "./AuthScreen";
 
 const LoginScreen = () => {
+  const url = useContext(urlContext);
   const { state, dispatch } = useContext(loginContext);
 
   const [log, setLog] = useState({
@@ -31,7 +32,7 @@ const LoginScreen = () => {
     setLog(log);
     console.log(log);
     await axios
-      .post("http://127.0.0.1:8000/api/auth/login", log, {
+      .post("http://"+url+"/api/auth/login", log, {
         headers: {
           "Content-Type": "application/json",
         },

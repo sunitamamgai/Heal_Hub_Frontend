@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+import { urlContext } from "../App";
+
 
 const RegisterScreen = () => {
+  const url = useContext(urlContext);
   let history = useHistory();
 
   const [input, setInput] = useState({
@@ -34,7 +37,7 @@ const RegisterScreen = () => {
     }
     setInput(input);
     await axios
-      .post("http://127.0.0.1:8000/api/auth/register", input, {
+      .post("http://"+url+"/api/auth/register", input, {
         headers: {
           "Content-Type": "application/json",
         },

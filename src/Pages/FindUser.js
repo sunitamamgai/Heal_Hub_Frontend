@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import SearchIcon from "@material-ui/icons/Search";
 import UserCard from "../components/UserCard";
 import axios from "axios";
+import { urlContext } from "../App";
 
 const FindUser = () => {
+  const url = useContext(urlContext);
   const [search, setSearch] = useState("");
   const [names, setNames] = useState([]);
 
@@ -12,7 +14,7 @@ const FindUser = () => {
   });
 
   useEffect(async () => {
-    let res = await axios.get("http://127.0.0.1:8000/api/auth/userlist");
+    let res = await axios.get("http://"+url+"/api/auth/userlist");
     //console.log(res.data);
     let temp = res.data.map((item) => item).filter((mp) => {
         return mp.is_MP === false;

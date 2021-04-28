@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import { loginContext } from "../App";
+import { loginContext, urlContext } from "../App";
 import axios from "axios";
 
 const Prescribe = () => {
+  const url = useContext(urlContext);
   const { state, dispatch } = useContext(loginContext);
   const [prescription, setPrescription] = useState({
     addedBy: "Doctor",
@@ -34,7 +35,7 @@ const Prescribe = () => {
     console.log(prescription);
 
     await axios
-      .post("http://127.0.0.1:8000/api/v1/PrescriptionInfo/", prescription, {
+      .post("http://"+url+"/api/v1/PrescriptionInfo/", prescription, {
         headers: {
           "Content-Type": "application/json",
           Authorization: "Token " + state.token,
@@ -42,7 +43,11 @@ const Prescribe = () => {
       })
       .then((res) => {
         console.log(res);
-        alert("Prescribed successfully.Tell the patient to check his Medical History");
+        if(res.status===200) {
+          alert(res.data + " Kindly contact your oragnization to activate your ID");
+        } else if(res.status === 201) {
+          alert("Prescribed successfully.Tell the patient to check his Medical History");
+        }
       })
       .catch((error) => console.log(error.response.request._response));
   };

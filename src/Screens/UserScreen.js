@@ -14,6 +14,7 @@ import PatientDetailAccess from "../Pages/PatientDetailAccess";
 import AccessById from "../Pages/AccessById";
 import AccessByFP from "../Pages/AccessByFP";
 import DetailAccess from "../Pages/DetailAccess";
+import DDashboard from "../Pages/DDashboard";
 
 const UserScreen = () => {
   const { state, dispatch } = useContext(loginContext);
@@ -60,6 +61,7 @@ const UserScreen = () => {
               <Route exact path="/patientdetailaccess/accessbyid" component={AccessById} />
               <Route exact path="/patientdetailaccess/accessbyfp" component={AccessByFP} />
               <Route exact path="/detailaccess" component={DetailAccess} />
+              <Route exact path="/ddashboard" component={DDashboard} />
               
               <Route exact path="/error" component={ErrorScreen} />
             </Switch>

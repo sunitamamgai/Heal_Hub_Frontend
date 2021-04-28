@@ -14,7 +14,7 @@ const Menu = () => {
               <li className="active btn">
                 <Link
                   className="txt"
-                  to="/dashboard"
+                  to="/ddashboard"
                   style={{ textDecoration: "none" }}
                 >
                   Dashboard

@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
-import { loginContext } from "../App";
+import { loginContext, urlContext } from "../App";
 import axios from "axios";
 
 const ProfileCard = () => {
+  const url = useContext(urlContext);
   const { state, dispatch } = useContext(loginContext);
   const [data, setData] = useState([]);
 
   useEffect(async () => {
     let res = await axios.get(
-      "http://127.0.0.1:8000/api/v1/PersonalInfoOfSpecificUser/" + state.user.id
+      "http://"+url+"/api/v1/PersonalInfoOfSpecificUser/" + state.user.id
     );
     console.log(res);
     setData(res.data);
@@ -19,8 +20,9 @@ const ProfileCard = () => {
   return (
     <>
       <div className="container inner">
-        <div className="card2">
+        <div className="dark-card">
           <h1>Profile Information</h1>
+          <hr/>
           {data.length == 0 ? (
             <h3>Currently no Data</h3>
           ) : (

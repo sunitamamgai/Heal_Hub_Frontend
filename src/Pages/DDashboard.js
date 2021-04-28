@@ -1,18 +1,23 @@
 import React, { useState, useContext } from "react";
 import { loginContext } from "../App";
+import DProfileCard from "../components/DProfileCard";
 import ProfileCard from "../components/ProfileCard";
 import TemperatureCard from "../components/TemperatureCard";
 
-const Dashboard = () => {
+const DDashboard = () => {
   const { state, dispatch } = useContext(loginContext);
 
   return (
     <>
-      <h1>Welcome to Healhub Dashboard</h1>
-      <hr />
-      <ProfileCard />
+      <div className="container inner">
+        <h1>Dashboard</h1>
+        <hr />
+        <div className="scrollable-container">
+         <DProfileCard/>
+        </div>
+      </div>
     </>
   );
 };
 
-export default Dashboard;
+export default DDashboard;

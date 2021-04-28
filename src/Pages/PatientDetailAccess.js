@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import AccessById from "./AccessById";
 import AccessByFP from "./AccessByFP";
 import PDANav from "../components/PDANav";
+
 
 const PatientDetailAccess = () => {
   const [isID, setIsID] = useState(false);

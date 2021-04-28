@@ -23,7 +23,7 @@ const PrescriptionCard = (props) => {
 
   return (
     <>
-        <tr className="">
+        <tr className="col">
           <td>{prescriberId}</td>
           <td>{hospitalOrClinic}</td>
           <td>{doctorName}</td>

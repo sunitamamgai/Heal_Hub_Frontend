@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import Select from "react-select";
 import axios from "axios";
-import { loginContext } from "../App";
+import { loginContext, urlContext } from "../App";
 
 const Prediction = () => {
   const [items] = useState([
@@ -156,6 +156,7 @@ const Prediction = () => {
   ]);
 
   const { state, dispatch } = useContext(loginContext);
+  const url = useContext(urlContext);
 
   const [symptoms, setSymptoms] = useState({
     s1: "",
@@ -178,7 +179,7 @@ const Prediction = () => {
   const handleSubmit = async () => {
     console.log(symptoms);
     await axios
-      .post("http://127.0.0.1:8000/api/v1/prediction/", symptoms, {
+      .post("http://"+url+"/api/v1/prediction/", symptoms, {
         headers: {
           "Content-Type": "application/json",
           Authorization: "Token " + state.token,

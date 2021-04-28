@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import { loginContext } from "../App";
+import { loginContext, urlContext } from "../App";
 import axios from "axios";
 import RequestCard from "../components/RequestCard";
 
 const AccessById = () => {
   const { state, dispatch } = useContext(loginContext);
+  const url = useContext(urlContext);
 
   const [id, setID] = useState({
     pid: "",
@@ -16,9 +17,9 @@ const AccessById = () => {
   const [user, setUser] = useState();
 
   const [otp, setOtp] = useState({
-      otp:"",
-      pid:"",
-      did:""
+    otp: "",
+    pid: "",
+    did: "",
   });
 
   const handleInputChange = (event) => {
@@ -29,23 +30,27 @@ const AccessById = () => {
   };
 
   const handleOTPInputChange = (event) => {
-      const {name, value} = event.target;
+    const { name, value } = event.target;
 
-      setOtp((prevData)=> {
-          return {...prevData, [name]:value}
-      })
-      setOtp((prevData)=> {
-        return {...prevData, ["pid"]:localStorage.getItem('pid'), ["did"]: state.user.id}
-    })
-  }
+    setOtp((prevData) => {
+      return { ...prevData, [name]: value };
+    });
+    setOtp((prevData) => {
+      return {
+        ...prevData,
+        ["pid"]: localStorage.getItem("pid"),
+        ["did"]: state.user.id,
+      };
+    });
+  };
 
   const handleOTPSubmit = async (event) => {
-      if(event) {
-          event.preventDefault()
-      }
-      
-      let res = await axios
-      .post("http://127.0.0.1:8000/api/v1/otpaccessverification/", otp, {
+    if (event) {
+      event.preventDefault();
+    }
+
+    let res = await axios
+      .post("http://"+url+"/api/v1/otpaccessverification/", otp, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -53,21 +58,19 @@ const AccessById = () => {
       .then((response) => {
         console.log(response);
 
-        if(response.status === 200) {
-            alert(response.data);
-        } else if (response.status === 201){
-            alert("OTP verified");
+        if (response.status === 200) {
+          alert(response.data);
+        } else if (response.status === 201) {
+          alert("OTP verified");
         }
-        
       })
       .catch((error) => {
         console.log(error.response);
         alert("No User Available for this OTP");
       });
 
-      console.log(otp);
-
-  }
+    console.log(otp);
+  };
 
   const handleSubmit = (event) => {
     if (event) {
@@ -83,7 +86,7 @@ const AccessById = () => {
   };
 
   useEffect(async () => {
-    let res = await axios.get("http://127.0.0.1:8000/api/auth/userlist");
+    let res = await axios.get("http://"+url+"/api/auth/userlist");
     //console.log(res.data);
     let temp = res.data
       .map((item) => item)
@@ -91,64 +94,83 @@ const AccessById = () => {
         return mp.is_MP === false;
       });
     setNames(temp);
-    
   }, []);
 
   return (
     <>
       <div className="container inner">
-        <h3>Access By Id </h3>
-        <div className="container2 inner">
+        <h3>Access by user Identity Number </h3>
+        <hr/>
+        <div className="container2 request-card2">
           <div className="col">
             <form onSubmit={handleSubmit}>
-              <div className="form-row">
-                <div className="form-group col-md-4">
-                  <label>Patient ID/ User ID</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    id=""
-                    placeholder="Patient ID"
-                    name="pid"
-                    value={id.pid}
-                    onChange={handleInputChange}
-                  />
+              <div className="dark-card">
+                <div className="form-group col">
+                  <label>
+                    <strong>Patient ID/User ID</strong>
+                  </label>
+                  <div className="row align-centre">
+                    <div className="col-8">
+                      <input
+                        type="number"
+                        className="form-control"
+                        id=""
+                        placeholder="Enter Patient ID"
+                        name="pid"
+                        value={id.pid}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                    <div className="col-4">
+                      <button type="submit" className="btn btn-primary">
+                        Search Patient
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <button type="submit" className="btn btn-primary">
-                  Search Patient
-                </button>
               </div>
             </form>
+            <div className="">
+              {user ? (
+                user.map((u) => (
+                  <RequestCard key={u.id} value={u} did={state.user.id} />
+                ))
+              ) : (
+                <div className="request-card2">
+                  <p>
+                    <strong>Note:</strong> Currently you have not searched any
+                    Patient ID/User ID
+                  </p>
+                </div>
+              )}
+            </div>
             <form onSubmit={handleOTPSubmit}>
-              <div className="form-row row">
-                <div className="form-group col-md-4">
-                  <label>OTP</label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    id=""
-                    placeholder="One Time Password"
-                    name="otp"
-                    value={otp.otp}
-                    onChange={handleOTPInputChange}
-                  />
+              <div className="dark-card">
+                <div className="form-group col">
+                  <label>
+                    <strong>OTP</strong>
+                  </label>
+                  <div className="row align-centre">
+                    <div className="col-8">
+                      <input
+                        type="number"
+                        className="form-control"
+                        id=""
+                        placeholder="Enter One Time Password after making request"
+                        name="otp"
+                        value={otp.otp}
+                        onChange={handleOTPInputChange}
+                      />
+                    </div>
+                    <div className="col-4">
+                      <button type="submit" className="btn btn-primary">
+                        Verify OTP
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <button type="submit" className="btn btn-primary">
-                  Verify OTP
-                </button>
               </div>
             </form>
-          </div>
-          <div className="">
-            {user ? (
-              user.map((u) => (
-                <RequestCard key={u.id} value={u} did={state.user.id} />
-              ))
-            ) : (
-              <div className="card2">
-                <p>No Data</p>
-              </div>
-            )}
           </div>
         </div>
       </div>

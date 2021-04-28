@@ -7,6 +7,8 @@ import React from "react";
 import AuthScreen from "./Screens/AuthScreen";
 
 export const loginContext = React.createContext();
+const url = "127.0.0.1:8000";
+export const urlContext = React.createContext(url);
 
 const initialState = {
   isAuthenticated: localStorage.getItem("token") ? true : false,
@@ -66,20 +68,22 @@ function App() {
           dispatch,
         }}
       >
-        <div className="container">
-          <Navbar />
-          <div className="" >
-            {verify ? (
-              state.isAuthenticated ? (
-                <UserScreen />
+        <urlContext.Provider value={url}>
+          <div className="container">
+            <Navbar />
+            <div className="">
+              {verify ? (
+                state.isAuthenticated ? (
+                  <UserScreen />
+                ) : (
+                  <OnboardingScreen />
+                )
               ) : (
-                <OnboardingScreen />
-              )
-            ) : (
-              <AuthScreen />
-            )}
+                <AuthScreen />
+              )}
+            </div>
           </div>
-        </div>
+        </urlContext.Provider>
       </loginContext.Provider>
     </>
   );
