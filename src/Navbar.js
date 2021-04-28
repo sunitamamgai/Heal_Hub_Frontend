@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg  bg-dark">
         <div className="container-fluid">
         
           <img src={logo} alt="HEALHUB" height="30px" />

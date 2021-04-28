@@ -7,7 +7,7 @@ import OTPScreen from "./OTPScreen";
 const OnboardingScreen = () => {
   return (
     <>
-      <div className="body_container">
+      <div className="body-container">
         <div className="container">
           <Switch>
             <Route exact path="/" component={LoginScreen}/>
