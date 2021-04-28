@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Heal_Hub_Frontend/static/css/main.e3077266.chunk.css",
+    "main.css": "/Heal_Hub_Frontend/static/css/main.86453552.chunk.css",
     "main.js": "/Heal_Hub_Frontend/static/js/main.afb15299.chunk.js",
     "main.js.map": "/Heal_Hub_Frontend/static/js/main.afb15299.chunk.js.map",
     "runtime-main.js": "/Heal_Hub_Frontend/static/js/runtime-main.0621784f.js",
@@ -10,7 +10,7 @@
     "static/js/2.12ebd398.chunk.js.map": "/Heal_Hub_Frontend/static/js/2.12ebd398.chunk.js.map",
     "index.html": "/Heal_Hub_Frontend/index.html",
     "static/css/2.20aa2d7b.chunk.css.map": "/Heal_Hub_Frontend/static/css/2.20aa2d7b.chunk.css.map",
-    "static/css/main.e3077266.chunk.css.map": "/Heal_Hub_Frontend/static/css/main.e3077266.chunk.css.map",
+    "static/css/main.86453552.chunk.css.map": "/Heal_Hub_Frontend/static/css/main.86453552.chunk.css.map",
     "static/js/2.12ebd398.chunk.js.LICENSE.txt": "/Heal_Hub_Frontend/static/js/2.12ebd398.chunk.js.LICENSE.txt",
     "static/media/index.css": "/Heal_Hub_Frontend/static/media/HEALTHCARE IMAGE.2dff1123.png",
     "static/media/HealHubLogo.d3c10949.jpeg": "/Heal_Hub_Frontend/static/media/HealHubLogo.d3c10949.jpeg"
@@ -19,7 +19,7 @@
     "static/js/runtime-main.0621784f.js",
     "static/css/2.20aa2d7b.chunk.css",
     "static/js/2.12ebd398.chunk.js",
-    "static/css/main.e3077266.chunk.css",
+    "static/css/main.86453552.chunk.css",
     "static/js/main.afb15299.chunk.js"
   ]
 }
