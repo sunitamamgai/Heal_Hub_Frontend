@@ -1,7 +1,7 @@
 import React from "react";
 import LoginScreen from "./LoginScreen";
 import RegisterScreen from "./RegisterScreen";
-import { Switch, Route, Link } from "react-router-dom";
+import { HashRouter, Switch, Route, Link } from "react-router-dom";
 import OTPScreen from "./OTPScreen";
 
 const OnboardingScreen = () => {
@@ -9,11 +9,12 @@ const OnboardingScreen = () => {
     <>
       <div className="body_container">
         <div className="container">
-          <Switch>
+          <HashRouter>
+            <Route exact path="/" component={LoginScreen}/>
             <Route exact path="/login" component={LoginScreen} />
             <Route exact path="/register" component={RegisterScreen} />
             <Route exact path="/otpscreen" component={OTPScreen} />
-          </Switch>
+          </HashRouter>
         </div>
       </div>
     </>

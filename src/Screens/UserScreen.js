@@ -50,6 +50,7 @@ const UserScreen = () => {
           </div>
           <div className="container-fluid col-10">
             <Switch>
+              
               <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/insurance" component={Insurance} />
