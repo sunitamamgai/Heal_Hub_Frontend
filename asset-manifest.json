@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Heal_Hub_Frontend/static/css/main.e3077266.chunk.css",
-    "main.js": "/Heal_Hub_Frontend/static/js/main.0910cbba.chunk.js",
-    "main.js.map": "/Heal_Hub_Frontend/static/js/main.0910cbba.chunk.js.map",
+    "main.js": "/Heal_Hub_Frontend/static/js/main.d1ddea02.chunk.js",
+    "main.js.map": "/Heal_Hub_Frontend/static/js/main.d1ddea02.chunk.js.map",
     "runtime-main.js": "/Heal_Hub_Frontend/static/js/runtime-main.0621784f.js",
     "runtime-main.js.map": "/Heal_Hub_Frontend/static/js/runtime-main.0621784f.js.map",
     "static/css/2.20aa2d7b.chunk.css": "/Heal_Hub_Frontend/static/css/2.20aa2d7b.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.20aa2d7b.chunk.css",
     "static/js/2.12ebd398.chunk.js",
     "static/css/main.e3077266.chunk.css",
-    "static/js/main.0910cbba.chunk.js"
+    "static/js/main.d1ddea02.chunk.js"
   ]
 }
