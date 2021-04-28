@@ -7,7 +7,8 @@ import React from "react";
 import AuthScreen from "./Screens/AuthScreen";
 
 export const loginContext = React.createContext();
-const url = "127.0.0.1:8000";
+//const url = "127.0.0.1:8000"; //Use this for local
+const url = "shalomalexander.pythonanywhere.com"; //Use this for hosted app
 export const urlContext = React.createContext(url);
 
 const initialState = {
