@@ -57,7 +57,7 @@ function App() {
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("user")) != null) {
       setVerify(JSON.parse(localStorage.getItem("user"))["verified_field"]);
-      console.log(verify);
+      // console.log(verify);
     }
   }, [state.isAuthenticated, state.user, verify]);
 

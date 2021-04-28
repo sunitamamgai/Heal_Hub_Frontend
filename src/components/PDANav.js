@@ -1,18 +1,10 @@
-import { propTypes } from "react-bootstrap/esm/Image";
+
 import { Link } from "react-router-dom";
-const PDANav = (props) => {
+const PDANav = () => {
 
-
-  const toggleID = ()=> {
-      props.handleIsID()
-  } 
-  
-  const toggleFP = ()=> {
-    props.handleIsFP()
-}
   return (
     <>
-      <button className="btn btn-dark" onClick={toggleID}>
+      <button className="btn btn-dark">
         <Link
           className="txt"
           to="/patientdetailaccess/accessbyid"
@@ -21,7 +13,7 @@ const PDANav = (props) => {
           Access By ID
         </Link>
       </button>
-      <button className="btn btn-dark" onClick={toggleFP}>
+      <button className="btn btn-dark" >
         <Link
           className="txt"
           to="/patientdetailaccess/accessbyfp"

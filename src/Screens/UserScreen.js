@@ -17,23 +17,18 @@ import DetailAccess from "../Pages/DetailAccess";
 import DDashboard from "../Pages/DDashboard";
 
 const UserScreen = () => {
-  const { state, dispatch } = useContext(loginContext);
+  const { dispatch } = useContext(loginContext);
 
   useEffect(() => {
-    //console.log("userScreen ",state.user);
-    //console.log(localStorage.getItem("user"));
-    //let userObj = JSON.parse(localStorage.getItem("user"));
-    //console.log(userObj);
-    //console.log(localStorage.getItem("token"));
     const user = JSON.parse(localStorage.getItem("user"));
     const token = JSON.parse(localStorage.getItem("token"));
-    console.log(user);
-    console.log(token);
+    // console.log(user);
+    // console.log(token);
     dispatch({
       type: "REFRESH",
       payload: { user, token },
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

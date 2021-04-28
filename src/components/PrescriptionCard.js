@@ -2,8 +2,6 @@ import React from "react";
 
 const PrescriptionCard = (props) => {
   const {
-    id,
-    addedBy,
     prescriberId,
     hospitalOrClinic,
     doctorName,
@@ -13,8 +11,6 @@ const PrescriptionCard = (props) => {
     symptoms,
     medicines,
     notes,
-    prescriptionAttachment,
-    userId,
   } = props.data;
 
   //   const handleDelete = () => {

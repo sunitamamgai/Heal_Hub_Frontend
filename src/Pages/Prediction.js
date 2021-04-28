@@ -1,5 +1,4 @@
 import { useState, useContext, useEffect } from "react";
-import Select from "react-select";
 import axios from "axios";
 import { loginContext, urlContext } from "../App";
 
@@ -155,7 +154,7 @@ const Prediction = () => {
     { label: "Yellow Crust Ooze", value: "yellow_crust_ooze" },
   ]);
 
-  const { state, dispatch } = useContext(loginContext);
+  const { state } = useContext(loginContext);
   const url = useContext(urlContext);
 
   const [symptoms, setSymptoms] = useState({
@@ -207,36 +206,36 @@ const Prediction = () => {
         </strong>
         <hr />
         <select id="s1" name="s1" className="select-dropdown" onChange={handleChange}>
-          {items.map((item) => (
-            <option key={item.value} value={item.value}>
+          {items.map((item, index) => (
+            <option key={index} value={item.value}>
               {item.label}
             </option>
           ))}
         </select>
         <select id="s2" name="s2" className="select-dropdown" onChange={handleChange}>
-          {items.map((item) => (
-            <option key={item.value} value={item.value}>
+          {items.map((item, index) => (
+            <option key={index} value={item.value}>
               {item.label}
             </option>
           ))}
         </select>
         <select id="s3" name="s3" className="select-dropdown" onChange={handleChange}>
-          {items.map((item) => (
-            <option key={item.value} value={item.value}>
+          {items.map((item, index) => (
+            <option key={index} value={item.value}>
               {item.label}
             </option>
           ))}
         </select>
         <select id="s4" name="s4" className="select-dropdown" onChange={handleChange}>
-          {items.map((item) => (
-            <option key={item.value} value={item.value}>
+          {items.map((item, index) => (
+            <option key={index} value={item.value}>
               {item.label}
             </option>
           ))}
         </select>
         <select id="s5" name="s5" className="select-dropdown" onChange={handleChange}>
-          {items.map((item) => (
-            <option key={item.value} value={item.value}>
+          {items.map((item, index) => (
+            <option key={index} value={item.value}>
               {item.label}
             </option>
           ))}
@@ -247,7 +246,7 @@ const Prediction = () => {
         </button>
         <hr />
         <h3>Disease Predictions</h3>
-        {diseases.length == 0 ? (
+        {diseases.length === 0 ? (
           <div>
             <ul className="ul-list">
               <li className="li-list">NULL</li>

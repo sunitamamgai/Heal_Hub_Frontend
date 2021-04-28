@@ -13,14 +13,19 @@ const FindUser = () => {
     return name.username.indexOf(search) !== -1;
   });
 
-  useEffect(async () => {
-    let res = await axios.get(url+"/api/auth/userlist");
-    //console.log(res.data);
-    let temp = res.data.map((item) => item).filter((mp) => {
-        return mp.is_MP === false;
-    });
-    setNames(temp);
-  },[]);
+  
+
+  useEffect(() => {
+    const fetchData = async ()=> {
+      let res = await axios.get(url+"/api/auth/userlist");
+      //console.log(res.data);
+      let temp = res.data.map((item) => item).filter((mp) => {
+          return mp.is_MP === false;
+      });
+      setNames(temp);
+    }
+    fetchData();
+  },[url]);
 
   return (
     <>
@@ -49,8 +54,8 @@ const FindUser = () => {
       </div>
       <div className="container">
         <div className="Usercontainer">
-          {filteredNames.map((name) => (
-            <UserCard value={name} />
+          {filteredNames.map((name, index) => (
+            <UserCard value={name} key={index}/>
           ))}
         </div>
       </div>

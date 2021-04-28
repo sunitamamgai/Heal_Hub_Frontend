@@ -7,7 +7,7 @@ import { loginContext, urlContext } from "../App";
 
 const Insurance = () => {
   const url = useContext(urlContext);
-  const { state, dispatch } = useContext(loginContext);
+  const {state} = useContext(loginContext);
 
   const [insurances, setInsurances] = useState([]);
 
@@ -34,7 +34,7 @@ const Insurance = () => {
     });
 
     setInsuranceInfo((prevData)=> {
-      return {...prevData, ["userId"]:state.user.token}
+      return {...prevData, "userId":state.user.token}
     })
   };
 
@@ -66,19 +66,24 @@ const Insurance = () => {
   };
 
   //AXIOS GET REQUEST
-  useEffect(async function getData() {
-    const response = await axios.get(
-      url+`/api/v1/InsuranceInfo/`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Token " + state.token,
-        },
-      }
-    );
-    console.log(response.data);
-    setInsurances(response.data);
-  }, [state.token]);
+  useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get(
+        url+`/api/v1/InsuranceInfo/`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Token " + state.token,
+          },
+        }
+      );
+      // console.log(response.data);
+      setInsurances(response.data);
+    }
+
+    getData();
+
+  }, [state.token, url]);
 
   //AXIOS DELETE REQUEST
   const deleteItem = async (id) => {

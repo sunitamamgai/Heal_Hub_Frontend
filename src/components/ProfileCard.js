@@ -4,18 +4,18 @@ import axios from "axios";
 
 const ProfileCard = () => {
   const url = useContext(urlContext);
-  const { state, dispatch } = useContext(loginContext);
+  const { state } = useContext(loginContext);
   const [data, setData] = useState([]);
 
-  useEffect(async () => {
-    let res = await axios.get(
-      url+"/api/v1/PersonalInfoOfSpecificUser/" + state.user.id
-    );
-    console.log(res);
-    setData(res.data);
-    console.log("This is data");
-    console.log(data);
-  }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      let res = await axios.get(
+        url+"/api/v1/PersonalInfoOfSpecificUser/" + state.user.id
+      );
+      setData(res.data);
+    }
+    fetchData();
+  }, [url, state]);
 
   return (
     <>
@@ -23,7 +23,7 @@ const ProfileCard = () => {
         <div className="dark-card">
           <h1>Profile Information</h1>
           <hr/>
-          {data.length == 0 ? (
+          {data.length === 0 ? (
             <h3>Currently no Data</h3>
           ) : (
             <div className="col">

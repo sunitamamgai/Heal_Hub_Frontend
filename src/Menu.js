@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { loginContext } from "./App";
 
 const Menu = () => {
-  const { state, dispatch } = useContext(loginContext);
+  const {state} = useContext(loginContext);
 
   return (
     <>

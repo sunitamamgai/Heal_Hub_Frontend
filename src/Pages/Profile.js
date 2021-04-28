@@ -5,9 +5,8 @@ import { loginContext, urlContext } from "../App";
 
 const Profile = () => {
   const url = useContext(urlContext);
-  const [finalProfile, setFinalProfile] = useState({});
-
-  const { state, dispatch } = useContext(loginContext);
+ 
+  const { state } = useContext(loginContext);
 
   const [profile, setProfile] = useState({
     user: state.user.id,
@@ -41,8 +40,7 @@ const Profile = () => {
     if (event) {
       event.preventDefault();
     }
-    setFinalProfile(profile);
-
+   
     //AXIOS POST Request
     axios
       .post(url+"/api/v1/PersonalInfo/", profile, {

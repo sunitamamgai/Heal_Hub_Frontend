@@ -5,31 +5,30 @@ import axios from "axios";
 import { loginContext, urlContext } from "../App";
 
 const Prescription = () => {
-  const { state, dispatch } = useContext(loginContext);
+  const { state } = useContext(loginContext);
   const url = useContext(urlContext);
 
   const [prescriptions, setPrescriptions] = useState([]);
 
 
   useEffect(
-    async function getData() {
-      const response = await axios.get(
-        url+`/api/v1/PrescriptionInfoOfSpecificUser/`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Token " + state.token,
-          },
-        }
-      );
-      // console.log(state.user);
-      // console.log(state.user.username);
-      // console.log(state.user.email);
-      //console.log(url);
+    () => {
+      const getData = async () => {
+        const response = await axios.get(
+          url+`/api/v1/PrescriptionInfoOfSpecificUser/`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Token " + state.token,
+            },
+          }
+        );
+        setPrescriptions(response.data);
+      }
 
-      setPrescriptions(response.data);
+      getData();
     },
-    [state.token]
+    [state.token, url]
   );
 
   const generatePDF = () => {

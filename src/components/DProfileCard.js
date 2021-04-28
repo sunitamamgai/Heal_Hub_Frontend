@@ -11,7 +11,7 @@ const DProfileCard = () => {
     console.log(showModal);
   };
 
-  const { state, dispatch } = useContext(loginContext);
+  const { state } = useContext(loginContext);
 
   const [data, setData] = useState({
     name: "",
@@ -22,36 +22,31 @@ const DProfileCard = () => {
     orgId: "",
   });
 
-  useEffect(async () => {
-    console.log(state.user.id);
-
-    const response = await axios.get(
-      url+`/api/v1/MedicalPractitionerInfoDetail/` +
-        state.user.id,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Token " + state.token,
-        },
-      }
-    );
-
-    console.log(response.data[0]);
-
-    setData((prevData) => {
-      return {
-        ...prevData,
-        ["name"]: response.data[0]["name"],
-        ["licenseNumber"]: response.data[0]["licenseNumber"],
-        ["mobileNumber"]: response.data[0]["mobileNumber"],
-        ["profile"]: response.data[0]["profile"],
-        ["address"]: response.data[0]["address"],
-        ["orgId"]: response.data[0]["orgId"],
-      };
-    });
-
-    console.log(data);
-  }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(
+        url + `/api/v1/MedicalPractitionerInfoDetail/` + state.user.id,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Token " + state.token,
+          },
+        }
+      );
+      setData((prevData) => {
+        return {
+          ...prevData,
+          name: response.data[0]["name"],
+          licenseNumber: response.data[0]["licenseNumber"],
+          mobileNumber: response.data[0]["mobileNumber"],
+          profile: response.data[0]["profile"],
+          address: response.data[0]["address"],
+          orgId: response.data[0]["orgId"],
+        };
+      });
+    };
+    fetchData();
+  },[url, state]);
 
   return (
     <>

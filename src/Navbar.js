@@ -14,16 +14,16 @@ const Navbar = () => {
   };
 
   const loginHandler = () => {
-    console.log(state.isAuthenticated);
+    // console.log(state.isAuthenticated);
   };
 
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            <img src={logo} alt="HEALHUB" height="30px" />
-          </a>
+        
+          <img src={logo} alt="HEALHUB" height="30px" />
+      
           <h2>HealHub</h2>
           <div className="">
             <ul className="navbar-nav me-auto searchrow">

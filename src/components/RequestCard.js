@@ -4,7 +4,7 @@ import { urlContext } from "../App";
 
 const RequestCard = (props) => {
   const url = useContext(urlContext);
-  const { id, username, email, is_mp, phone_number } = props.value;
+  const { id, username, phone_number } = props.value;
   const did = props.did;
 
   const [pField, setPfield] = useState({
@@ -21,7 +21,7 @@ const RequestCard = (props) => {
   });
 
   const onChangeHandler = (event) => {
-    const { name, value } = event.target;
+    const { name } = event.target;
     if (name === "prescription_field") {
       setPfield((prevData) => {
         return { ...prevData, [name]: event.target.checked };
@@ -31,9 +31,9 @@ const RequestCard = (props) => {
     setData((prevData) => {
       return {
         ...prevData,
-        ["prescription_field"]: event.target.checked,
-        ["pid"]: id,
-        ["did"]: did,
+        "prescription_field": event.target.checked,
+        "pid": id,
+        "did": did,
       };
     });
   };
@@ -45,7 +45,7 @@ const RequestCard = (props) => {
     localStorage.setItem("pid", id);
     console.log(data);
 
-    let res = axios
+    axios
       .post(url+"/api/v1/accessverification/", data, {
         headers: {
           "Content-Type": "application/json",

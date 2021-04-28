@@ -1,10 +1,9 @@
 import React from "react";
 
 const UserCard = (props) => {
-    const {id, username, email, is_mp} = props.value;
+    const {id, username, email } = props.value;
   return (
     <>
-        {console.log(props.value)}
       <div className="card">
         <div className="card-body">
           <p className="card-text">

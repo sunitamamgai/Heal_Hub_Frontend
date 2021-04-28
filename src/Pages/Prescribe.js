@@ -4,7 +4,7 @@ import axios from "axios";
 
 const Prescribe = () => {
   const url = useContext(urlContext);
-  const { state, dispatch } = useContext(loginContext);
+  const { state } = useContext(loginContext);
   const [prescription, setPrescription] = useState({
     addedBy: "Doctor",
     prescriberId: state.user.id,

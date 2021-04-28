@@ -1,11 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { loginContext, urlContext } from "../App";
 import axios from "axios";
 import PrescriptionCard from "../components/PrescriptionCard";
 
 const DetailAccess = () => {
   const url = useContext(urlContext);
-  const { state, dispatch } = useContext(loginContext);
+  const {state} = useContext(loginContext);
   const [data, setData] = useState({
     did: "",
     pid: "",
@@ -22,9 +22,9 @@ const DetailAccess = () => {
       return { ...prevData, [name]: value };
     });
     setData((prevData) => {
-      return { ...prevData, ["did"]: state.user.id };
+      return { ...prevData, "did": state.user.id };
     });
-    console.log(data);
+    // console.log(data);
   };
 
   const handleSubmit = async (event) => {
@@ -42,7 +42,7 @@ const DetailAccess = () => {
       })
       .then((response) => {
         //   console.log(response);
-        if (response.data != "No Access") {
+        if (response.data !== "No Access") {
           setPres(response.data);
         } else {
           setPres([]);
@@ -50,7 +50,7 @@ const DetailAccess = () => {
           return;
         }
 
-        console.log(pres);
+        // console.log(pres);
       })
       .catch((error) => {
         console.log(error.response);
@@ -58,9 +58,6 @@ const DetailAccess = () => {
       });
   };
 
-  useEffect(() => {
-    console.log(pres);
-  }, [pres]);
 
   return (
     <>
@@ -95,7 +92,7 @@ const DetailAccess = () => {
         <hr />
         <div className="scrollable-container inner">
           <div className="detail-container">
-            {pres.length != 0 ? (
+            {pres.length !== 0 ? (
               <div className="request-card2 inner align-centre">
                 <div className="col">
                   <h3>User Prescription</h3>
