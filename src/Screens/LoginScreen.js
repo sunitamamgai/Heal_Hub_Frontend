@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { loginContext, urlContext } from "../App";
 import ErrorScreen from "./ErrorScreen";
-import { Link } from "react-router-dom"; 
 
 const LoginScreen = () => {
   const url = useContext(urlContext);
