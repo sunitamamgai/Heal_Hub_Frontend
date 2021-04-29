@@ -7,10 +7,12 @@ const Menu = () => {
 
   return (
     <>
-      <div className="sidenav" id="no-print">
-        <ul className="navbar-nav">
+      <div className="menu-body-container" id="no-print">
+      <div className="sec-menu-container">
+        <ul className="">
           {state.user.is_MP ? (
             <>
+            <button className="active btn">
               <li className="active btn">
                 <Link
                   className="txt"
@@ -20,6 +22,7 @@ const Menu = () => {
                   Dashboard
                 </Link>
               </li>
+              </button>
               <li className="active btn">
                 <Link
                   className="txt"
@@ -107,6 +110,7 @@ const Menu = () => {
             </>
           )}
         </ul>
+      </div>  
       </div>
     </>
   );

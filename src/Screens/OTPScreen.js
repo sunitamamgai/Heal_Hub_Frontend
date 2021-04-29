@@ -49,7 +49,14 @@ const OTPScreen = () => {
         <div className="inner ">
           <form onSubmit={handleSubmit}>
             <div className="align-centre">
-              <p className="bold-1" >The OTP has been sent to your mobile number.</p>
+            <div className="col">
+              <div className="row align-centre">
+                <p className="bold-1 font-small" >The OTP has been sent to your mobile number.</p>
+              </div> 
+              <div className="row align-centre"> 
+                <p className="" >+91-{otp.phone_number}</p>
+              </div> 
+            </div>   
             </div>
             <div className="align-centre">
               <img src={otp_img} alt="OTP" height="250px" />

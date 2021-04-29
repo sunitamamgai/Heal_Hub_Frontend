@@ -32,20 +32,14 @@ const UserScreen = () => {
 
   return (
     <>
-      <div className="container-fluid">
-        <div className="row" id="no-print">
-          <div className="logo col-2">
-            <div className="ml-5 mt-2 mb-2">HEALHUB</div>
-          </div>
-          <div className="col"></div>
-        </div>
-        <div className="row2 row">
-          <div className="menu_bar col-2">
+      <div className="container-fluidr">
+        <div className="row">
+          <div className="menu-body-container">
             <Menu />
           </div>
-          <div className="container-fluid col-10">
+          <div className="container-fluid  col-10">
             <Switch>
-              
+              {/* <Route exact path="/userscreen" component={UserScreen} /> */}
               <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/insurance" component={Insurance} />

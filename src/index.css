@@ -14,7 +14,6 @@ body {
   background-image: url("./assets/Images/HEALTHCARE\ IMAGE.png");
 }
 
-
 .body-container {
   height: 100vh;
   width: 100%;
@@ -34,7 +33,31 @@ body {
   align-items: center;
   justify-content: center;
   overflow: scroll;
-  padding-bottom: 40px;
+  padding-bottom: 60px;
+  padding-top:20px;
+}
+
+.menu-body-container {
+  height: 100vh;
+  min-width: 200px;
+  max-width: 200px;
+  background-color: #212529;
+}
+
+.sec-menu-container {
+  padding-top: 50px;
+  padding-left: 10px;
+}
+
+ul {
+  text-align: left;
+  padding:0;
+}
+
+
+.nav-container {
+  background-color: #212529;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
 }
 
 .checkbox-container {
@@ -225,9 +248,7 @@ h2 {
   border-radius: 5px;
 }
 
-.sidenav {
-  height: 100vh;
-}
+
 
 p {
   margin-left: 10px ;
