@@ -79,8 +79,7 @@ const AccessById = () => {
     let res = names
       .map((name) => name)
       .filter((n) => {
-       
-        return n.id == id.pid;
+        return parseInt(id.pid) === parseInt(n.id);
       });
     setUser(res);
     console.log(res);

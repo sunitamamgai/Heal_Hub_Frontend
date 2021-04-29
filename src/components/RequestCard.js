@@ -64,7 +64,7 @@ const RequestCard = (props) => {
       {console.log(props.value)}
       <div className="request-card2">
         <div className="card-body">
-          <p className="card-text">
+          <div className="card-text">
             <h3>Patient Detail</h3>
             <hr/>
             <div className="row">
@@ -80,7 +80,7 @@ const RequestCard = (props) => {
                 <strong>Phone Number :</strong> {phone_number}
               </div>
             </div>
-          </p>
+          </div>
         </div>
         <form>
           <div className="form-group">
