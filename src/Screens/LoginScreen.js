@@ -66,7 +66,7 @@ const LoginScreen = () => {
       {error ? (
         <ErrorScreen />
       ) : (
-        <div className="container">
+        <div className="sec-body-container">
           <div className="inner">
             <form onSubmit={handleSubmit}>
               <h3>Log in</h3>

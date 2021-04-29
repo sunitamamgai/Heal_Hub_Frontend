@@ -56,17 +56,17 @@ const RegisterScreen = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="sec-body-container">
         <div className="inner">
           <form onSubmit={handleSubmit}>
             <h3>Register</h3>
 
             <div className="form-group">
-              <label>Username</label>
+              <label  className="font-small" >Username</label>
               <input
                 type="text"
                 className="form-control"
-                placeholder="Username"
+                placeholder="Enter Username"
                 name="username"
                 onChange={onChangeHandler}
                 value={input.username}
@@ -74,11 +74,11 @@ const RegisterScreen = () => {
             </div>
 
             <div className="form-group">
-              <label>Email</label>
+              <label  className="font-small" >Email</label>
               <input
                 type="email"
                 className="form-control"
-                placeholder="email"
+                placeholder="Enter Email"
                 name="email"
                 onChange={onChangeHandler}
                 value={input.email}
@@ -86,11 +86,11 @@ const RegisterScreen = () => {
             </div>
 
             <div className="form-group">
-              <label>Phone Number</label>
+              <label  className="font-small" >Phone Number</label>
               <input
                 type=""
                 className="form-control"
-                placeholder="phone number"
+                placeholder="Enter Phone number"
                 name="phone_number"
                 onChange={onChangeHandler}
                 value={input.phone_number}
@@ -98,7 +98,7 @@ const RegisterScreen = () => {
             </div>
 
             <div className="form-group">
-              <label>Password</label>
+              <label className="font-small">Password</label>
               <input
                 type="password"
                 className="form-control"
@@ -110,13 +110,13 @@ const RegisterScreen = () => {
             </div>
 
             <div className="form-group">
-              <div className="row searchrow">
-                <label className="col">
+              <div className="row align-centre">
+                <label className="col font-small">
                   Want to register as Medical Practitioner?
                 </label>
                 <input
                   type="checkbox"
-                  className="form-control col"
+                  className="checkbox-container col"
                   placeholder="Click only if you are Medical Practitioner"
                   name="is_MP"
                   checked={input.is_MP}
@@ -125,7 +125,7 @@ const RegisterScreen = () => {
               </div>
             </div>
 
-            <div className="form-group">
+            {/* <div className="form-group">
               <div className="row searchrow">
                 <label className="col">
                   Want to register as Pharmacy User?
@@ -139,7 +139,7 @@ const RegisterScreen = () => {
                   onChange={onChangeHandler}
                 />
               </div>
-            </div>
+            </div> */}
 
             <button type="submit" className="btn btn-dark btn-lg btn-block">
                 Register

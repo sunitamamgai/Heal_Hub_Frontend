@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import {useHistory} from 'react-router-dom';
 import { urlContext } from "../App";
+import otp_img from "../assets/Images/otp_vector.jpg";
 
 const OTPScreen = () => {
 
@@ -44,16 +45,21 @@ const OTPScreen = () => {
 
   return (
     <>
-      <div className="container">
-        <div className="inner">
+      <div className="sec-body-container">
+        <div className="inner ">
           <form onSubmit={handleSubmit}>
-            <h3>ENTER OTP</h3>
+            <div className="align-centre">
+              <p className="bold-1" >The OTP has been sent to your mobile number.</p>
+            </div>
+            <div className="align-centre">
+              <img src={otp_img} alt="OTP" height="250px" />
+            </div>
 
             <div className="form-group">
               <input
                 type="text"
                 className="form-control"
-                placeholder="One Time Password"
+                placeholder="Enter One Time Password"
                 name="otp"
                 onChange={onChangeHandler}
               />

@@ -8,7 +8,7 @@ const OnboardingScreen = () => {
   return (
     <>
       <div className="body-container">
-        <div className="container">
+        <div className="">
           <Switch>
             <Route exact path="/" component={LoginScreen}/>
             <Route exact path="/login" component={LoginScreen} />

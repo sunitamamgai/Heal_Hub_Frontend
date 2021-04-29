@@ -19,31 +19,35 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg  bg-dark">
+      <nav className="navbar navbar-expand-lg bg-dark">
         <div className="container-fluid">
         
           <img src={logo} alt="HEALHUB" height="30px" />
       
           <h2>HealHub</h2>
           <div className="">
-            <ul className="navbar-nav me-auto searchrow">
+            <ul className="navbar-nav  align-centre">
               {state.isAuthenticated ? (
                 <>
-                <li className="nav-item white">
-                   <strong> Logged as : {state.user.username} </strong>
-                </li>
-                <br/>
-                <li className="nav-item">
-                  <button
-                    className="btn btn-primary btn-sm"
-                    onClick={logoutHandler}
-                  >
-                    Logout
-                  </button>
-                </li>
+                <div className="row align-centre">
+                  <li className="nav-item white">
+                    <strong> Logged as : {state.user.username} </strong>
+                  </li>
+                
+                  <li className="nav-item">
+                    <button
+                      className="btn btn-primary btn-sm"
+                      onClick={logoutHandler}
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </div>
+
                </> 
               ) : (
                 <>
+                <div className="row">
                   <li className="nav-item">
                     <button className="btn btn-primary btn-sm">
                       <Link
@@ -67,6 +71,7 @@ const Navbar = () => {
                       </Link>
                     </button>
                   </li>
+                  </div>
                 </>
               )}
             </ul>
