@@ -79,10 +79,12 @@ const AccessById = () => {
     let res = names
       .map((name) => name)
       .filter((n) => {
-        return n.id === id.pid;
+       
+        return n.id == id.pid;
       });
     setUser(res);
-    console.log(user);
+    console.log(res);
+    
   };
 
   
@@ -96,6 +98,7 @@ const AccessById = () => {
         .filter((mp) => {
           return mp.is_MP === false;
         });
+        
       setNames(temp);
     }
     fetchData();

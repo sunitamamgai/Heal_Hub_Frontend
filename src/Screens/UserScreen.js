@@ -32,7 +32,7 @@ const UserScreen = () => {
 
   return (
     <>
-      <div className="container-fluidr">
+      <div className="container-fluid">
         <div className="row">
           <div className="menu-body-container">
             <Menu />
