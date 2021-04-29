@@ -58,7 +58,7 @@ const Prescribe = () => {
 
   return (
     <>
-      <div className="container inner">
+      <div className="content-inner">
         <h1>Prescribe Page</h1>
         <hr />
         <form onSubmit={handleSubmit}>
@@ -133,7 +133,7 @@ const Prescribe = () => {
             </div> */}
           </div>
           <button type="submit" className="btn btn-primary">
-            Submit
+            Prescribe
           </button>
         </form>
       </div>

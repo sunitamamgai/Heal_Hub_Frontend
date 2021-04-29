@@ -61,8 +61,9 @@ const DetailAccess = () => {
 
   return (
     <>
-      <div className="container inner">
+      <div className="content-inner">
         <h3>Detail Access</h3>
+        <p><strong>Note: </strong>This tool must be used once the patient has granted you the access to their medical reports.</p>
         <hr />
         <form onSubmit={handleSubmit}>
           <div className="form-row">
@@ -74,7 +75,7 @@ const DetailAccess = () => {
                     type="number"
                     className="form-control"
                     id=""
-                    placeholder="Patient ID"
+                    placeholder="Enter Patient ID / User ID"
                     name="pid"
                     value={data.pid}
                     onChange={handleInputChange}
@@ -90,24 +91,17 @@ const DetailAccess = () => {
           </div>
         </form>
         <hr />
-        <div className="scrollable-container inner">
-          <div className="detail-container">
+        <div className="scrollable-container">
+          <div className="">
             {pres.length !== 0 ? (
-              <div className="request-card2 inner align-centre">
+              <div className="">
                 <div className="col">
                   <h3>User Prescription</h3>
                   <hr />
                   <table
-                    className="col-8 table table-sm inside-container"
-                    style={{
-                      maxHeight: 600,
-                      maxWidth: 400,
-                      overflow: "hidden",
-                      backgroundColor: "ActiveBorder",
-                    }}
-                    id="invoice-table"
+                    className="col table"
                   >
-                    <thead className=" thead-dark inside-container">
+                    <thead className="thead-dark">
                       <tr bgcolor="">
                         <th scope="col">Prescriber Id</th>
                         <th scope="col">Hospital or Clinic</th>
@@ -118,7 +112,6 @@ const DetailAccess = () => {
                         <th scope="col">Symptoms</th>
                         <th scope="col">Medicines</th>
                         <th scope="col">Notes</th>
-                        <th scope="col"></th>
                       </tr>
                     </thead>
                     <tbody className="">
@@ -132,7 +125,7 @@ const DetailAccess = () => {
                 </div>
               </div>
             ) : (
-              <div className="request-card2 inner">
+              <div className="profile-inner">
                 <p>
                   <strong>Note:</strong> Currently you have not searched any
                   Patient ID/User ID

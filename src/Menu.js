@@ -12,7 +12,6 @@ const Menu = () => {
         <ul className="">
           {state.user.is_MP ? (
             <>
-            <button className="active btn">
               <li className="active btn">
                 <Link
                   className="txt"
@@ -22,7 +21,6 @@ const Menu = () => {
                   Dashboard
                 </Link>
               </li>
-              </button>
               <li className="active btn">
                 <Link
                   className="txt"

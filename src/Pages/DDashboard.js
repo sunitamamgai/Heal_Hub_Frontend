@@ -3,10 +3,10 @@ import DProfileCard from "../components/DProfileCard";
 const DDashboard = () => {
   return (
     <>
-      <div className="container inner">
+      <div className="content-inner">
         <h1>Dashboard</h1>
         <hr />
-        <div className="scrollable-container">
+        <div className="profile-inner">
          <DProfileCard/>
         </div>
       </div>

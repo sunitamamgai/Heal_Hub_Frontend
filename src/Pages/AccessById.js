@@ -106,8 +106,9 @@ const AccessById = () => {
 
   return (
     <>
-      <div className="container inner">
-        <h3>Access by user Identity Number </h3>
+      <div className="content-inner">
+        <h3>Access by Patient Identiy Number</h3>
+        <p><strong>Note: </strong> When you make a request, An OTP will be generated and sent to user's phone number. Enter the One Time Password below to get access.</p>
         <hr/>
         <div className="container2 request-card2">
           <div className="col">

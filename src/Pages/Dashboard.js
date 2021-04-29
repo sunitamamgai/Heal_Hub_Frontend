@@ -8,7 +8,6 @@ const Dashboard = () => {
       <h1>Welcome to Healhub Dashboard!</h1>
       <hr />
       <ProfileCard />
-      
     </div>  
     </>
   );

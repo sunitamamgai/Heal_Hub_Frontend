@@ -8,9 +8,10 @@ const PatientDetailAccess = () => {
   
   return (
     <>
-      <div className="container inner">
-        <h3>Patient Detail Access</h3>
-        <div><PDANav/></div>
+      <div className="content-inner">
+        <h3>Access Verification Tool</h3>
+        <p><strong>Note: </strong>Use Access by fingerprint in those cases where the patient is unconscious or is incapable of communication.</p>
+        <div className="profile-inner"><PDANav/></div>
         <div className="container">
           <Switch>
             <Route

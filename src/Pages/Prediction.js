@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { loginContext, urlContext } from "../App";
+import DP from "../assets/Images/diseasePrediction.jpg";
 
 const Prediction = () => {
   const [items] = useState([
@@ -198,69 +199,89 @@ const Prediction = () => {
 
   return (
     <>
-      <div className="container inner">
+      <div className="content-inner">
         <h3>DISEASE PREDICTION TOOL</h3>
-        <strong>
-          Use this tool to have insights on the type of disease based on
-          symptoms
-        </strong>
+        <p><strong >Note: </strong>Use this tool to have insight on the type of disease the patient is experiencing based on
+          symptoms</p>
         <hr />
-        <select id="s1" name="s1" className="select-dropdown" onChange={handleChange}>
-          {items.map((item, index) => (
-            <option key={index} value={item.value}>
-              {item.label}
-            </option>
-          ))}
-        </select>
-        <select id="s2" name="s2" className="select-dropdown" onChange={handleChange}>
-          {items.map((item, index) => (
-            <option key={index} value={item.value}>
-              {item.label}
-            </option>
-          ))}
-        </select>
-        <select id="s3" name="s3" className="select-dropdown" onChange={handleChange}>
-          {items.map((item, index) => (
-            <option key={index} value={item.value}>
-              {item.label}
-            </option>
-          ))}
-        </select>
-        <select id="s4" name="s4" className="select-dropdown" onChange={handleChange}>
-          {items.map((item, index) => (
-            <option key={index} value={item.value}>
-              {item.label}
-            </option>
-          ))}
-        </select>
-        <select id="s5" name="s5" className="select-dropdown" onChange={handleChange}>
-          {items.map((item, index) => (
-            <option key={index} value={item.value}>
-              {item.label}
-            </option>
-          ))}
-        </select>
-
-        <button className="btn btn-dark" onClick={handleSubmit}>
-          Predict
-        </button>
-        <hr />
-        <h3>Disease Predictions</h3>
-        {diseases.length === 0 ? (
-          <div>
-            <ul className="ul-list">
-              <li className="li-list">NULL</li>
-            </ul>
+        <div className="profile-inner">
+        <p><strong>Note: </strong> Select 5 symptoms</p>
+        <div className="row">
+          <div className="col-5">
+            <img className="dp-img" src={DP} alt="#" />
           </div>
-        ) : (
-          <div>
-            <ul className="ul-list">
-              {diseases.map((disease, index) => (
-                <li key={index} className="li-list">{disease}</li>
+          <div className="col-7">
+            <select id="s1" name="s1" className="form-control select-dropdown" onChange={handleChange}>
+              {items.map((item, index) => (
+                <option key={index} value={item.value}>
+                  {item.label}
+                </option>
               ))}
-            </ul>
+            </select>
+            <select id="s2" name="s2" className="form-control select-dropdown" onChange={handleChange}>
+              {items.map((item, index) => (
+                <option key={index} value={item.value}>
+                  {item.label}
+                </option>
+              ))}
+            </select>
+            <select id="s3" name="s3" className="form-control select-dropdown" onChange={handleChange}>
+              {items.map((item, index) => (
+                <option key={index} value={item.value}>
+                  {item.label}
+                </option>
+              ))}
+            </select>
+            <select id="s4" name="s4" className="form-control  select-dropdown" onChange={handleChange}>
+              {items.map((item, index) => (
+                <option key={index} value={item.value}>
+                  {item.label}
+                </option>
+              ))}
+            </select>
+            <select id="s5" name="s5" className="form-control  select-dropdown" onChange={handleChange}>
+              {items.map((item, index) => (
+                <option key={index} value={item.value}>
+                  {item.label}
+                </option>
+              ))}
+            </select>
+          
+            <button className="btn btn-dark" onClick={handleSubmit}>
+              Predict
+            </button>
+          
           </div>
-        )}
+        </div>
+        </div>
+        <hr/>
+        <div className="profile-inner">
+        <h3>Disease Predictions</h3>
+        <div className="row">
+          <div className="col-6">
+            {diseases.length === 0 ? (
+              <div>
+              <p><strong>Note:</strong> You have not predicted anything.</p>
+                <ul className="ul-list">
+                  <li className="li-list">NULL</li>
+                </ul>
+              </div>
+            ) : (
+              <div>
+                <p><strong>Note:</strong> The patient may be suffering from these diseases.</p>
+                <ul className="ul-list">
+                  {diseases.map((disease, index) => (
+                    <li key={index} className="li-list">{disease}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+          <div className="col-4">
+            <img className="dp-img" src={DP} alt="#" />
+          </div>
+        </div>  
+        </div>
       </div>
     </>
   );

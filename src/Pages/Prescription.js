@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import PrescriptionCard from "../components/PrescriptionCard";
-import logo from "../HealHubLogo.jpeg";
+// import logo from "../HealHubLogo.jpeg";
 import axios from "axios";
 import { loginContext, urlContext } from "../App";
 
@@ -37,41 +37,19 @@ const Prescription = () => {
 
   return (
     <>
-      <div className="container inner" id="invoice">
-        <div className="table" id="invoice-header">
-          <div className="row">
-            <div className="col">
-              <img src={logo} alt="HEALHUB" height="100" />
-            </div>
-          </div>
-          <br />
-          <div className="row">
-            <div className="col">
-              <h3>Medical History</h3>
-            </div>
-          </div>
-          <div className="row align-centre">
-          <div className="row dark-card">
-            <address>
-              <strong>Name: {state.user.username}</strong>
-              <br />
-              <strong>Email Id: {state.user.email}</strong>
-              <br />
-              Date: {Date().toLocaleString()}
-            </address>
-          </div>
-          </div>
+      <div className="content-inner" id="invoice">
+      <div className="row">
+        <div className="col">
+          <h1>Medical Prescription History</h1>
         </div>
+        <div className="col-2">
+          <button className="btn btn-primary" onClick={() => generatePDF()}>Generate PDF</button>
+        </div>  
+      </div>  
         <hr />
-        <div className="prescription-scrollable-container">
+        <div className="">
           <table
-            className="col-8 table table-sm table-boardered table-striped inner"
-            style={{
-              maxHeight: 600,
-
-              overflow: "auto",
-              backgroundColor: "ActiveBorder",
-            }}
+            className="table table-boardered table-striped"
             id="invoice-table"
           >
             <thead className="thead-dark">
@@ -85,7 +63,6 @@ const Prescription = () => {
                 <th scope="col">Symptoms</th>
                 <th scope="col">Medicines</th>
                 <th scope="col">Notes</th>
-                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
@@ -102,7 +79,7 @@ const Prescription = () => {
             </tbody>
           </table>
         </div>
-        <button className="btn btn-primary" onClick={() => generatePDF()}>Generate PDF</button>
+        
       </div>
     </>
   );

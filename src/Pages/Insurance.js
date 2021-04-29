@@ -111,11 +111,18 @@ const Insurance = () => {
 
   return (
     <>
-      <div className="container">
-        <h1>Insurance Information</h1>
-        <button onClick={toggleShowModal} className="btn btn-primary">
-          Add
-        </button>
+      <div className="content-inner">
+      <div className="profile-inner">
+        <div className="row">
+          <div className="col">
+            <h1>Update Insurance Information</h1>
+          </div>
+          <div className="col-2">  
+            <button onClick={toggleShowModal} className="btn btn-primary">
+              Add
+            </button>
+          </div>  
+        </div>  
         <InsuranceForm
           showModal={showModal}
           setShowModal={setShowModal}
@@ -128,19 +135,13 @@ const Insurance = () => {
 
         <table
           className="col table table-boardered"
-          style={{
-            maxHeight: 600,
-            overflow: "auto",
-            backgroundColor: "ActiveBorder",
-          }}
         >
-          <thead>
+          <thead className="thead-dark">
             <tr>
               <th scope="col">Provider</th>
               <th scope="col">Valid Till</th>
               <th scope="col">Policy Name</th>
               <th scope="col">Policy Number</th>
-              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -156,6 +157,7 @@ const Insurance = () => {
             })}
           </tbody>
         </table>
+        </div>
       </div>
     </>
   );
