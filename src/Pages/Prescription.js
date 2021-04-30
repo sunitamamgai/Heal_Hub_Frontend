@@ -24,6 +24,8 @@ const Prescription = () => {
           }
         );
         setPrescriptions(response.data);
+        //console.log(response.data);
+        // console.log(prescriptions);
       }
 
       getData();

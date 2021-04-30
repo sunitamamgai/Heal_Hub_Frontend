@@ -75,7 +75,7 @@ Medical emergencies can happen anytime and anywhere. A number of cases has been 
                         <div className="col">
                             <div className="profile-inner">
                                 <h1>Found a Bug or Issue ?</h1>
-                                <p>We assure customer reliability and ease while using web portal. Support team is available to resolve any issue arise using the web application .
+                                <p style={{textAlign:"justify"}}>We assure customer reliability and ease while using web portal. Support team is available to resolve any issue arise using the web application .
             Contact us today at healhub0@gmail.com
    	Or leave a bug or issue feedback using the form below.
 </p>

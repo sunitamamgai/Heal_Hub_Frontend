@@ -18,9 +18,8 @@ const Navbar = () => {
       <nav className="nav-container navbar navbar-expand-lg">
         <div className="container-fluid">
         
-          <img src={logo} alt="HEALHUB" height="30px" />
-      
-          <h2>HealHub</h2>
+          <img src={logo} alt="HEALHUB" height="40px" />
+    
           <div className="">
             <ul className="navbar-nav  align-centre">
               {state.isAuthenticated ? (

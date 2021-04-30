@@ -105,6 +105,15 @@ const Menu = () => {
                   Prescription
                 </Link>
               </li>
+              <li className="btn">
+                <Link
+                  className="txt"
+                  to="/doctorslist"
+                  style={{ textDecoration: "none" }}
+                >
+                 Doctors List
+                </Link>
+              </li>
             </>
           )}
         </ul>
