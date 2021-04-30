@@ -13,10 +13,6 @@ const Navbar = () => {
 
   };
 
-  const loginHandler = () => {
-    // console.log(state.isAuthenticated);
-  };
-
   return (
     <>
       <nav className="nav-container navbar navbar-expand-lg">
@@ -35,41 +31,49 @@ const Navbar = () => {
                   </li>
                 
                   <li className="nav-item">
+                  <Link
+                  to="/"
+                  >
                     <button
                       className="btn btn-primary btn-sm"
                       onClick={logoutHandler}
                     >
                       Logout
                     </button>
+                  </Link>  
                   </li>
                 </div>
 
                </> 
               ) : (
                 <>
-                <div className="row">
+                <div className="row  align-centre">
                   <li className="nav-item">
-                    <button className="btn btn-primary btn-sm">
-                      <Link
+                    <Link
+                        className="txt"
+                        to="/"
+                        style={{ textDecoration: "none" }}
+                      >
+                       <h6 style={{paddingRight:20}}> Home </h6>
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
                         className="txt"
                         to="/login"
                         style={{ textDecoration: "none" }}
-                        onClick={loginHandler}
                       >
-                        Login
-                      </Link>
-                    </button>
+                       <h6 style={{paddingRight:20}}> Login </h6>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <button className="btn btn-primary btn-sm">
-                      <Link
+                     <Link
                         className="txt"
                         to="/register"
                         style={{ textDecoration: "none" }}
                       >
-                        Register
-                      </Link>
-                    </button>
+                        <h6 style={{paddingRight:20}}>Register</h6>
+                    </Link>
                   </li>
                   </div>
                 </>

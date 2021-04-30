@@ -153,6 +153,7 @@ const AccessById = () => {
                 </div>
               )}
             </div>
+            <hr/>
             <form onSubmit={handleOTPSubmit}>
               <div className="dark-card">
                 <div className="form-group col">

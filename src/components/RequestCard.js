@@ -62,9 +62,9 @@ const RequestCard = (props) => {
   return (
     <>
       {console.log(props.value)}
-      <div className="request-card2">
-        <div className="card-body">
-          <div className="card-text">
+      <div className="profile-inner">
+        <div className="">
+          <div className="">
             <h3>Patient Detail</h3>
             <hr/>
             <div className="row">
@@ -84,13 +84,13 @@ const RequestCard = (props) => {
         </div>
         <form>
           <div className="form-group">
-            <div className="row searchrow">
-              <label className="col">
+            <div className="row">
+              <label className="col-5">
                 <strong>Prescribtion Field</strong>
               </label>
               <input
                 type="checkbox"
-                className="form-control col"
+                className="checkbox-container  col-1"
                 placeholder=""
                 name="prescription_field"
                 checked={pField.prescription_field}
