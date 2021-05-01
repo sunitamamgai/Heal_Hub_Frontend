@@ -44,7 +44,7 @@ const ProfileCard = () => {
 
                   <div className="row">
                     <p>
-                      <strong>ID:</strong> {data["id"]}
+                      <strong>ID:</strong> {data["user"]}
                     </p>
                     <p>
                       <strong>Email ID:</strong> {data["emailId"]}

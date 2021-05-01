@@ -33,6 +33,21 @@ body {
   color: #ee5a6f;
 }
 
+.li-font {
+  font-size: 14px;
+  height: 40px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.li-font:hover {
+  background-color: #212529;
+  
+}
+.active {
+  background: linear-gradient(to right, #212529 95%, #b0efeb 5%);
+}
+
 .btn-1 {
   margin-left: 10px;
   width: 300px;
@@ -107,7 +122,7 @@ body {
 .menu-body-container {
   position: fixed;
   height: 100vh;
-  width: 200px;
+  width: 250px;
   background-color: #2b3036;
   z-index:1;
   overflow: scroll;
@@ -125,7 +140,7 @@ body {
   height: 100vh;
   padding-left: 20px;
   padding-right: 20px;
-  margin-left:200px;
+  margin-left:250px;
   overflow-y: scroll;
   background-color: #eeeeee; 
 }
