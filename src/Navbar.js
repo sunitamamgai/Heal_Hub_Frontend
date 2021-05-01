@@ -26,7 +26,7 @@ const Navbar = () => {
                 <>
                 <div className="row align-centre">
                   <li className="nav-item white">
-                    <strong> Logged as : {state.user.username} </strong>
+                    <strong> Logged in as : {state.user.username} </strong>
                   </li>
                 
                   <li className="nav-item">

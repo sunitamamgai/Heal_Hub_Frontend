@@ -4,24 +4,22 @@ const PDANav = () => {
 
   return (
     <>
-      <button className="btn btn-dark">
-        <Link
+      <Link
           className="txt"
           to="/patientdetailaccess/accessbyid"
-          style={{ textDecoration: "none" }}
         >
-          Access By ID
-        </Link>
-      </button>
-      <button className="btn btn-dark" >
-        <Link
+        <button className="btn btn-dark">
+            Access By ID
+        </button>
+      </Link>
+      <Link
           className="txt"
           to="/patientdetailaccess/accessbyfp"
-          style={{ textDecoration: "none" }}
-        >
+      >
+      <button className="btn btn-dark" >
           Access By Fingerprint
-        </Link>
       </button>
+      </Link>
     </>
   );
 };

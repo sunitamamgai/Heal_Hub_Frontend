@@ -2,7 +2,7 @@ import home1 from "../assets/Images/home-1.jpg";
 import support from "../assets/Images/support.jpg";
 import security from "../assets/Images/security.png";
 import { Link } from "react-router-dom";
-import logo from "../assets/Images/healhub-logo.png";
+// import logo from "../assets/Images/healhub-logo.png";
 
 const HomeScreen = () => {
     return (
@@ -12,7 +12,7 @@ const HomeScreen = () => {
                     <div className="row">
                         <img className="home-1-img" src={home1} alt="#" />
                         <div className="col">
-                            <img src={logo} alt="HEALHUB" height="200px" />
+                            {/* <img src={logo} alt="HEALHUB" height="200px" /> */}
                             <p className="bold-900" >HealHub<span className="icon-size-sm material-icons">health_and_safety</span></p>
                             <p className="font-medium">An Electronic Health Record Management System. A secure place to store your Health Records.</p>
                             <Link to="/register"><button className="btn-1">Register</button></Link>    
