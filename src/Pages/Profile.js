@@ -39,8 +39,7 @@ const Profile = () => {
   const handleSubmit = (event) => {
     if (event) {
       event.preventDefault();
-    }
-   
+    } 
     //AXIOS POST Request
     axios
       .post(url+"/api/v1/PersonalInfo/", profile, {
@@ -49,7 +48,7 @@ const Profile = () => {
         },
       })
       .then((response) => {
-        console.log(response);
+        alert("Data Submitted");
       })
       .catch((error) => console.log(error.response.request._response));
   };
@@ -64,13 +63,13 @@ const Profile = () => {
               <h3>Update Profile</h3>
             </div> 
             <div className="col-2"> 
-              <button className="btn btn-primary" type="submit">
+              <button onClick={handleSubmit} className="btn btn-primary" type="submit">
                         Save
               </button>
             </div>  
           </div>
           <hr/>
-            <form onSubmit={handleSubmit}>
+            <form>
               <div className="row">
                 <div className="col">
                   <label>First Name</label>

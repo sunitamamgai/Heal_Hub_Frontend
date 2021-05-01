@@ -2,6 +2,7 @@ import home1 from "../assets/Images/home-1.jpg";
 import support from "../assets/Images/support.jpg";
 import security from "../assets/Images/security.png";
 import { Link } from "react-router-dom";
+import logo from "../assets/Images/healhub-logo.png";
 
 const HomeScreen = () => {
     return (
@@ -11,7 +12,8 @@ const HomeScreen = () => {
                     <div className="row">
                         <img className="home-1-img" src={home1} alt="#" />
                         <div className="col">
-                            <p className="bold-900" >HealHub<span class="icon-size-sm material-icons">health_and_safety</span></p>
+                            <img src={logo} alt="HEALHUB" height="200px" />
+                            <p className="bold-900" >HealHub<span className="icon-size-sm material-icons">health_and_safety</span></p>
                             <p className="font-medium">An Electronic Health Record Management System. A secure place to store your Health Records.</p>
                             <Link to="/register"><button className="btn-1">Register</button></Link>    
                         </div>
@@ -37,7 +39,7 @@ Medical emergencies can happen anytime and anywhere. A number of cases has been 
                     
                 </div>  
                 <div className="home-content-inner">
-                    <p className="bold-500"> <span class="icon-size material-icons">supervised_user_circle</span> Stakeholder</p>  
+                    <p className="bold-500"> <span className="icon-size material-icons">supervised_user_circle</span> Stakeholder</p>  
                     <div className="stakeholders-inner x-axis-scroll">
                     <div className="row">
                         <div className="profile-inner">
@@ -52,7 +54,7 @@ Medical emergencies can happen anytime and anywhere. A number of cases has been 
                     </div>
                 </div>  
                 <div className="home-content-inner x-axis-scroll">
-                    <p className="bold-500"> <span class="icon-size material-icons">security</span>Security</p>
+                    <p className="bold-500"> <span className="icon-size material-icons">security</span>Security</p>
                     <div className="row">
                         <div className="col align-centre">
                                 <img className="home-2-img" src={security} alt="#" /> 
@@ -70,7 +72,7 @@ Medical emergencies can happen anytime and anywhere. A number of cases has been 
                     </div>
                 </div>
                 <div className="home-content-inner x-axis-scroll">
-                    <p className="bold-500"> <span class="icon-size material-icons">contact_support</span> Contact and Support</p>
+                    <p className="bold-500"> <span className="icon-size material-icons">contact_support</span> Contact and Support</p>
                     <div className="row">
                         <div className="col">
                             <div className="profile-inner">

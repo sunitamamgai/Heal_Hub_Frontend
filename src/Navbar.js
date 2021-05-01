@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import logo from "./HealHubLogo.jpeg";
+import logo from "./assets/Images/healhub-logo.png";
 import { loginContext } from "./App";
 
 const Navbar = () => {
