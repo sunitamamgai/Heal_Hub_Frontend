@@ -20,7 +20,7 @@ const Menu = () => {
                   to="/ddashboard"
                   style = {{ textDecoration: "none" }}
                 >
-                 <span class="material-icons" >home</span>   Dashboard
+                 <span className ="material-icons" >home</span>   Dashboard
                 </Link>
               </li>
               <li className = {"li-font"+ ("l2"===active ? " active" : "")} onClick={()=> setActive("l2")}>
@@ -29,7 +29,7 @@ const Menu = () => {
                   to="/prescribe"
                   style = {{ textDecoration: "none" }}
                 >
-                 <span class="material-icons" >edit_note</span>   Prescribe
+                 <span className ="material-icons" >edit_note</span>   Prescribe
                 </Link>
               </li>
               <li className = {"li-font"+ ("l3"===active ? " active" : "")} onClick={()=> setActive("l3")}>
@@ -38,7 +38,7 @@ const Menu = () => {
                   to="/finduser"
                   style = {{ textDecoration: "none" }}
                 >
-                 <span class="material-icons" >person_search</span>   Find User
+                 <span className="material-icons" >person_search</span>   Find User
                 </Link>
               </li>
               <li className = {"li-font"+ ("l4"===active ? " active" : "")} onClick={()=> setActive("l4")}>
@@ -47,7 +47,7 @@ const Menu = () => {
                   to="/prediction"
                   style = {{ textDecoration: "none" }}
                 >
-                  <span class="material-icons" >construction</span>  Disease Prediction Tool
+                  <span className="material-icons" >construction</span>  Disease Prediction Tool
                 </Link>
               </li>
               <li className = {"li-font"+ ("l5"===active ? " active" : "")} onClick={()=> setActive("l5")}>
@@ -56,7 +56,7 @@ const Menu = () => {
                   to="/patientdetailaccess"
                   style = {{ textDecoration: "none" }}
                 >
-                  <span class="material-icons" >verified</span>  Access Verification Tool
+                  <span className="material-icons" >verified</span>  Access Verification Tool
                 </Link>
               </li>
               <li className = {"li-font"+ ("l6"===active ? " active" : "")} onClick={()=> setActive("l6")}>
@@ -66,7 +66,7 @@ const Menu = () => {
                   to="/detailaccess"
                   style = {{ textDecoration: "none" }}
                 >
-                  <span class="material-icons" >fact_check</span> Patient Detail Access
+                  <span className="material-icons" >fact_check</span> Patient Detail Access
                 </Link>
               </li>
             </>
@@ -78,7 +78,7 @@ const Menu = () => {
                   to="/dashboard"
                   style = {{ textDecoration: "none" }}
                 >
-                  <span class="material-icons" >home</span> Dashboard
+                  <span className="material-icons" >home</span> Dashboard
                 </Link>
               </li>
               <li className = {"li-font"+ ("l2"===active ? " active" : "")} onClick={()=> setActive("l2")}>
@@ -87,7 +87,7 @@ const Menu = () => {
                   to="/profile"
                   style = {{ textDecoration: "none" }}
                 >
-                  <span class="material-icons" >person</span>  Profile
+                  <span className="material-icons" >person</span>  Profile
                 </Link>
               </li>
               <li className = {"li-font"+ ("l3"===active ? " active" : "")} onClick={()=> setActive("l3")}>
@@ -96,7 +96,7 @@ const Menu = () => {
                   to="/insurance"
                   style = {{ textDecoration: "none" }}
                 >
-                   <span class="material-icons" >history_edu</span> Insurance
+                   <span className="material-icons" >history_edu</span> Insurance
                 </Link>
               </li>
               <li className = {"li-font"+ ("l4"===active ? " active" : "")} onClick={()=> setActive("l4")}>
@@ -105,7 +105,7 @@ const Menu = () => {
                   to="/prescription"
                   style = {{ textDecoration: "none" }}
                 >
-                  <span class="material-icons" >description</span>  Prescription
+                  <span className="material-icons" >description</span>  Prescription
                 </Link>
               </li>
               <li className = {"li-font"+ ("l5"===active ? " active" : "")} onClick={()=> setActive("l5")}>
@@ -114,7 +114,7 @@ const Menu = () => {
                   to="/doctorslist"
                   style = {{ textDecoration: "none" }}
                 >
-                 <span class="material-icons" >group</span>  Doctors List
+                 <span className="material-icons" >group</span>  Doctors List
                 </Link>
               </li>
             </>
