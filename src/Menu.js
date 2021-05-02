@@ -20,7 +20,7 @@ const Menu = () => {
                   to="/ddashboard"
                   style = {{ textDecoration: "none" }}
                 >
-                 <span className ="material-icons" >home</span>   Dashboard
+                 <span className="material-icons" >home</span>   Dashboard
                 </Link>
               </li>
               <li className = {"li-font"+ ("l2"===active ? " active" : "")} onClick={()=> setActive("l2")}>
@@ -29,7 +29,7 @@ const Menu = () => {
                   to="/prescribe"
                   style = {{ textDecoration: "none" }}
                 >
-                 <span className ="material-icons" >edit_note</span>   Prescribe
+                 <span className="material-icons" >edit_note</span>   Prescribe
                 </Link>
               </li>
               <li className = {"li-font"+ ("l3"===active ? " active" : "")} onClick={()=> setActive("l3")}>
