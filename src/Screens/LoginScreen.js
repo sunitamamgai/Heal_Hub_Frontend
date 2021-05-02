@@ -20,7 +20,6 @@ const LoginScreen = () => {
     setLog((prevData) => {
       return { ...prevData, [name]: value };
     });
-    console.log(log);
   };
 
   const handleSubmit = async (event) => {
@@ -28,7 +27,6 @@ const LoginScreen = () => {
       event.preventDefault();
     }
     setLog(log);
-    console.log(log);
     await axios
       .post(url+"/api/auth/login", log, {
         headers: {

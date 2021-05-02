@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { loginContext, urlContext } from "../App";
 import moment from "moment"
@@ -85,7 +85,6 @@ const Profile = () => {
     setProfile((prevData) => {
       return { ...prevData, [name]: value };
     });
-    console.log(profile);
   };
 
   const handleSubmit = (event) => {
@@ -100,10 +99,43 @@ const Profile = () => {
         },
       })
       .then((response) => {
-        alert("Data Submitted");
+        alert("Profile Updated Successfully.");
       })
-      .catch((error) => console.log(error.response.request));
+      .catch((error) => {
+        console.log(error.response.request);
+        alert(error.response.request["response"]);
+      });
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let response = await axios.get(url+"/api/v1/PersonalInfoOfSpecificUser/"+state.user.id);
+     
+
+      setProfile((prevData)=> {
+        return {...prevData, 
+          "firstName": response.data["firstName"],
+          "middleName": response.data["middleName"],
+          "lastName": response.data["lastName"],
+          "gender": response.data["gender"],
+          "dateOfBirth": response.data["dateOfBirth"],
+          "bloodGroup": response.data["bloodGroup"],
+          "emailId": response.data["emailId"],
+          "mobileNumber": response.data["mobileNumber"],
+          "alternateMobileNumber": response.data["alternateMobileNumber"],
+          "addressLine1": response.data["addressLine1"],
+          "addressLine2": response.data["addressLine2"],
+          "cityOrTown": response.data["cityOrTown"],
+          "district": response.data["district"],
+          "state": response.data["state"],
+          "pin": response.data["pin"],
+          "aadhaarCardNumber": response.data["aadhaarCardNumber"]
+        };
+      });
+    
+    }
+    fetchData();
+  },[state.user.id, url]);
 
   return (
     <>
@@ -196,6 +228,8 @@ const Profile = () => {
                     onChange={handleInputChange}
                     value={profile.mobileNumber}
                     autoComplete="off"
+                    maxLength='10'
+                    minLength='10'
                   />
 
                   <label>Alternate Mobile Number</label>
@@ -206,6 +240,8 @@ const Profile = () => {
                     onChange={handleInputChange}
                     value={profile.alternateMobileNumber}
                     autoComplete="off"
+                    maxLength='10'
+                    minLength='10'
                   />
 
                    <label>Address Line 1</label>
@@ -269,6 +305,8 @@ const Profile = () => {
                       onChange={handleInputChange}
                       value={profile.pin}
                       autoComplete="off"
+                      maxLength='6'
+                      minLength='6'
                     />
 
                     <label>Aadhaar Card Number</label>

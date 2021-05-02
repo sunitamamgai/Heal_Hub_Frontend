@@ -14,7 +14,6 @@ const ProfileCard = () => {
         url+"/api/v1/PersonalInfoOfSpecificUser/" + state.user.id
       );
       setData(res.data);
-      console.log(res.data);
     }
     
     fetchData();
