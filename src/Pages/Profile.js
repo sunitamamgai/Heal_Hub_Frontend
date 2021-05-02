@@ -5,9 +5,8 @@ import { loginContext, urlContext } from "../App";
 
 const Profile = () => {
   const url = useContext(urlContext);
-  const [finalProfile, setFinalProfile] = useState({});
-
-  const { state, dispatch } = useContext(loginContext);
+ 
+  const { state } = useContext(loginContext);
 
   const [profile, setProfile] = useState({
     user: state.user.id,
@@ -40,9 +39,7 @@ const Profile = () => {
   const handleSubmit = (event) => {
     if (event) {
       event.preventDefault();
-    }
-    setFinalProfile(profile);
-
+    } 
     //AXIOS POST Request
     axios
       .post(url+"/api/v1/PersonalInfo/", profile, {
@@ -51,193 +48,207 @@ const Profile = () => {
         },
       })
       .then((response) => {
-        console.log(response);
+        alert("Data Submitted");
       })
       .catch((error) => console.log(error.response.request._response));
   };
 
   return (
     <>
-      <div className="inner profile-scrollable-container">
-        <div className="row">
-          <form onSubmit={handleSubmit}>
-            <div className="row input_field">
-              <div className="col">
-                <label>First Name</label>
-                <input
-                  className="form-control "
-                  type="text"
-                  name="firstName"
-                  onChange={handleInputChange}
-                  value={profile.firstName}
-                  autoComplete="off"
-                />
-
-                <label>Middle Name</label>
-                <input
-                  className="form-control"
-                  type="text"
-                  name="middleName"
-                  onChange={handleInputChange}
-                  value={profile.middleName}
-                  autoComplete="off"
-                  placeholder="optional"
-                />
-
-                <label>Last Name</label>
-                <input
-                  className="form-control"
-                  type="text"
-                  name="lastName"
-                  onChange={handleInputChange}
-                  value={profile.lastName}
-                  autoComplete="off"
-                />
-
-                <label>Gender</label>
-                <input
-                  className="form-control"
-                  type="text"
-                  name="gender"
-                  onChange={handleInputChange}
-                  value={profile.gender}
-                  autoComplete="off"
-                  placeholder="Male or Female or Other"
-                />
-
-                <label>Date of Birth</label>
-                <input
-                  className="form-control"
-                  type="date"
-                  name="dateOfBirth"
-                  onChange={handleInputChange}
-                  value={profile.dateOfBirth}
-                  autoComplete="off"
-                />
-              </div>
-              <div className="col">
-                <label>Blood Group</label>
-                <input
-                  className="form-control"
-                  type="text"
-                  name="bloodGroup"
-                  onChange={handleInputChange}
-                  value={profile.bloodGroup}
-                  autoComplete="off"
-                  placeholder="O+,O-,A+,A-,AB+,AB-,B+,B-"
-                />
-
-                <label>Email ID</label>
-                <input
-                  className="form-control"
-                  type="text"
-                  name="emailId"
-                  onChange={handleInputChange}
-                  value={profile.emailId}
-                  autoComplete="off"
-                />
-
-                <label>Mobile Number</label>
-                <input
-                  className="form-control"
-                  type="text"
-                  name="mobileNumber"
-                  onChange={handleInputChange}
-                  value={profile.mobileNumber}
-                  autoComplete="off"
-                />
-
-                <label>Alternate Mobile Number</label>
-                <input
-                  className="form-control"
-                  type="text"
-                  name="alternateMobileNumber"
-                  onChange={handleInputChange}
-                  value={profile.alternateMobileNumber}
-                  autoComplete="off"
-                  placeholder="optional"
-                />
-              </div>
-              <div className="container input_field">
-                <div className="row input_field">
-                  <label>Address Line 1</label>
+      <div className="content-inner">
+        <div className="">
+          <div className="profile-inner">
+          <div className="row">
+            <div className="col">
+              <h3>Update Profile</h3>
+            </div> 
+            <div className="col-2"> 
+              <button onClick={handleSubmit} className="btn btn-primary" type="submit">
+                        Save
+              </button>
+            </div>  
+          </div>
+          <hr/>
+            <form>
+              <div className="row">
+                <div className="col">
+                  <label>First Name</label>
                   <input
-                    className="form-control"
+                    className="form-control "
                     type="text"
-                    name="addressLine1"
+                    name="firstName"
                     onChange={handleInputChange}
-                    value={profile.addressLine1}
+                    value={profile.firstName}
                     autoComplete="off"
                   />
 
-                  <label>Address Line 2</label>
+                  <label>Middle Name</label>
                   <input
                     className="form-control"
                     type="text"
-                    name="addressLine2"
+                    name="middleName"
                     onChange={handleInputChange}
-                    value={profile.addressLine2}
-                    autoComplete="off"
-                  />
-
-                  <label>City or Town</label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="cityOrTown"
-                    onChange={handleInputChange}
-                    value={profile.cityOrTown}
-                    autoComplete="off"
-                  />
-
-                  <label>District</label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="district"
-                    onChange={handleInputChange}
-                    value={profile.district}
-                    autoComplete="off"
-                  />
-
-                  <label>State</label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="state"
-                    onChange={handleInputChange}
-                    value={profile.state}
-                    autoComplete="off"
-                  />
-
-                  <label>Pin</label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="pin"
-                    onChange={handleInputChange}
-                    value={profile.pin}
-                    autoComplete="off"
-                  />
-
-                  <label>Aadhaar Card Number</label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="aadhaarCardNumber"
-                    onChange={handleInputChange}
-                    value={profile.aadhaarCardNumber}
+                    value={profile.middleName}
                     autoComplete="off"
                     placeholder="optional"
                   />
+
+                  <label>Last Name</label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="lastName"
+                    onChange={handleInputChange}
+                    value={profile.lastName}
+                    autoComplete="off"
+                  />
+
+                  <label>Gender</label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="gender"
+                    onChange={handleInputChange}
+                    value={profile.gender}
+                    autoComplete="off"
+                    placeholder="Male or Female or Other"
+                  />
+
+                  <label>Date of Birth</label>
+                  <input
+                    className="form-control"
+                    type="date"
+                    name="dateOfBirth"
+                    onChange={handleInputChange}
+                    value={profile.dateOfBirth}
+                    autoComplete="off"
+                  />
+
+                  <label>Blood Group</label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="bloodGroup"
+                    onChange={handleInputChange}
+                    value={profile.bloodGroup}
+                    autoComplete="off"
+                    placeholder="O+,O-,A+,A-,AB+,AB-,B+,B-"
+                  />
+
                 </div>
-                <hr />
-                <button className="btn-sm btn-primary" type="submit">
-                  Submit
-                </button>
+                <div className="col">
+                  <label>Email ID</label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="emailId"
+                    onChange={handleInputChange}
+                    value={profile.emailId}
+                    autoComplete="off"
+                  />
+
+                  <label>Mobile Number</label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="mobileNumber"
+                    onChange={handleInputChange}
+                    value={profile.mobileNumber}
+                    autoComplete="off"
+                  />
+
+                  <label>Alternate Mobile Number</label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="alternateMobileNumber"
+                    onChange={handleInputChange}
+                    value={profile.alternateMobileNumber}
+                    autoComplete="off"
+                    placeholder="optional"
+                  />
+
+                   <label>Address Line 1</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="addressLine1"
+                      onChange={handleInputChange}
+                      value={profile.addressLine1}
+                      autoComplete="off"
+                    />
+
+                    <label>Address Line 2</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="addressLine2"
+                      onChange={handleInputChange}
+                      value={profile.addressLine2}
+                      autoComplete="off"
+                    />
+
+                    <label>City or Town</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="cityOrTown"
+                      onChange={handleInputChange}
+                      value={profile.cityOrTown}
+                      autoComplete="off"
+                    />
+                </div>
+                <div className="col">
+                  <div className="">
+
+
+                    <label>District</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="district"
+                      onChange={handleInputChange}
+                      value={profile.district}
+                      autoComplete="off"
+                    />
+
+                    <label>State</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="state"
+                      onChange={handleInputChange}
+                      value={profile.state}
+                      autoComplete="off"
+                    />
+
+                    <label>Pin</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="pin"
+                      onChange={handleInputChange}
+                      value={profile.pin}
+                      autoComplete="off"
+                    />
+
+                    <label>Aadhaar Card Number</label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="aadhaarCardNumber"
+                      onChange={handleInputChange}
+                      value={profile.aadhaarCardNumber}
+                      autoComplete="off"
+                      placeholder=""
+                    />
+                  </div>
+                  <hr />
+                  <p className="font-small"><strong>Note:</strong> When you fill this form and submit it, The data will reflect in your dashboard.</p>
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </>

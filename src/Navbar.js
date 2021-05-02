@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import logo from "./HealHubLogo.jpeg";
+import logo from "./assets/Images/healhub-logo.png";
 import { loginContext } from "./App";
 
 const Navbar = () => {
@@ -13,60 +13,68 @@ const Navbar = () => {
 
   };
 
-  const loginHandler = () => {
-    console.log(state.isAuthenticated);
-  };
-
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="nav-container navbar navbar-expand-lg">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            <img src={logo} alt="HEALHUB" height="30px" />
-          </a>
-          <h2>HealHub</h2>
+        
+          <img src={logo} alt="HEALHUB" height="40px" />
+    
           <div className="">
-            <ul className="navbar-nav me-auto searchrow">
+            <ul className="navbar-nav  align-centre">
               {state.isAuthenticated ? (
                 <>
-                <li className="nav-item white">
-                   <strong> Logged as : {state.user.username} </strong>
-                </li>
-                <br/>
-                <li className="nav-item">
-                  <button
-                    className="btn btn-primary btn-sm"
-                    onClick={logoutHandler}
+                <div className="row align-centre">
+                  <li className="nav-item white">
+                    <strong> Logged in as : {state.user.username} </strong>
+                  </li>
+                
+                  <li className="nav-item">
+                  <Link
+                  to="/"
                   >
-                    Logout
-                  </button>
-                </li>
+                    <button
+                      className="btn btn-primary btn-sm"
+                      onClick={logoutHandler}
+                    >
+                      Logout
+                    </button>
+                  </Link>  
+                  </li>
+                </div>
+
                </> 
               ) : (
                 <>
+                <div className="row  align-centre">
                   <li className="nav-item">
-                    <button className="btn btn-primary btn-sm">
-                      <Link
+                    <Link
+                        className="txt"
+                        to="/"
+                        style={{ textDecoration: "none" }}
+                      >
+                       <h6 style={{paddingRight:20}}> Home </h6>
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
                         className="txt"
                         to="/login"
                         style={{ textDecoration: "none" }}
-                        onClick={loginHandler}
                       >
-                        Login
-                      </Link>
-                    </button>
+                       <h6 style={{paddingRight:20}}> Login </h6>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <button className="btn btn-primary btn-sm">
-                      <Link
+                     <Link
                         className="txt"
                         to="/register"
                         style={{ textDecoration: "none" }}
                       >
-                        Register
-                      </Link>
-                    </button>
+                        <h6 style={{paddingRight:20}}>Register</h6>
+                    </Link>
                   </li>
+                  </div>
                 </>
               )}
             </ul>

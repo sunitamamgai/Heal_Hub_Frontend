@@ -10,7 +10,7 @@ const DProfileForm = ({
 }) => {
   
   const url = useContext(urlContext);
-  const { state, dispatch } = useContext(loginContext);  
+  const state  = useContext(loginContext);  
   const [data, setData] = useState({
       user: "",
       name:"",
@@ -29,7 +29,7 @@ const DProfileForm = ({
     });
 
     setData((prevData) => {
-        return {...prevData, ["user"]:state.user.id};
+        return {...prevData, "user":state.user.id};
     });
     console.log(data);
   }  

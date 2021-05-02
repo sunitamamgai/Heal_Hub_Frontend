@@ -7,7 +7,7 @@ import { loginContext, urlContext } from "../App";
 
 const Insurance = () => {
   const url = useContext(urlContext);
-  const { state, dispatch } = useContext(loginContext);
+  const {state} = useContext(loginContext);
 
   const [insurances, setInsurances] = useState([]);
 
@@ -34,7 +34,7 @@ const Insurance = () => {
     });
 
     setInsuranceInfo((prevData)=> {
-      return {...prevData, ["userId"]:state.user.token}
+      return {...prevData, "userId":state.user.token}
     })
   };
 
@@ -66,19 +66,24 @@ const Insurance = () => {
   };
 
   //AXIOS GET REQUEST
-  useEffect(async function getData() {
-    const response = await axios.get(
-      url+`/api/v1/InsuranceInfo/`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Token " + state.token,
-        },
-      }
-    );
-    console.log(response.data);
-    setInsurances(response.data);
-  }, [state.token]);
+  useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get(
+        url+`/api/v1/InsuranceInfo/`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Token " + state.token,
+          },
+        }
+      );
+      // console.log(response.data);
+      setInsurances(response.data);
+    }
+
+    getData();
+
+  }, [state.token, url]);
 
   //AXIOS DELETE REQUEST
   const deleteItem = async (id) => {
@@ -106,11 +111,18 @@ const Insurance = () => {
 
   return (
     <>
-      <div className="container">
-        <h1>Insurance Information</h1>
-        <button onClick={toggleShowModal} className="btn btn-primary">
-          Add
-        </button>
+      <div className="content-inner">
+      <div className="profile-inner">
+        <div className="row">
+          <div className="col">
+            <h1>Update Insurance Information</h1>
+          </div>
+          <div className="col-2">  
+            <button onClick={toggleShowModal} className="btn btn-primary">
+              Add
+            </button>
+          </div>  
+        </div>  
         <InsuranceForm
           showModal={showModal}
           setShowModal={setShowModal}
@@ -123,19 +135,13 @@ const Insurance = () => {
 
         <table
           className="col table table-boardered"
-          style={{
-            maxHeight: 600,
-            overflow: "auto",
-            backgroundColor: "ActiveBorder",
-          }}
         >
-          <thead>
+          <thead className="thead-dark">
             <tr>
               <th scope="col">Provider</th>
               <th scope="col">Valid Till</th>
               <th scope="col">Policy Name</th>
               <th scope="col">Policy Number</th>
-              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -151,6 +157,7 @@ const Insurance = () => {
             })}
           </tbody>
         </table>
+        </div>
       </div>
     </>
   );

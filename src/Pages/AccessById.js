@@ -4,7 +4,7 @@ import axios from "axios";
 import RequestCard from "../components/RequestCard";
 
 const AccessById = () => {
-  const { state, dispatch } = useContext(loginContext);
+  const {state} = useContext(loginContext);
   const url = useContext(urlContext);
 
   const [id, setID] = useState({
@@ -38,8 +38,8 @@ const AccessById = () => {
     setOtp((prevData) => {
       return {
         ...prevData,
-        ["pid"]: localStorage.getItem("pid"),
-        ["did"]: state.user.id,
+        "pid": localStorage.getItem("pid"),
+        "did": state.user.id,
       };
     });
   };
@@ -49,7 +49,7 @@ const AccessById = () => {
       event.preventDefault();
     }
 
-    let res = await axios
+    await axios
       .post(url+"/api/v1/otpaccessverification/", otp, {
         headers: {
           "Content-Type": "application/json",
@@ -79,27 +79,36 @@ const AccessById = () => {
     let res = names
       .map((name) => name)
       .filter((n) => {
-        return n.id == id.pid;
+        return parseInt(id.pid) === parseInt(n.id);
       });
     setUser(res);
-    console.log(user);
+    console.log(res);
+    
   };
 
-  useEffect(async () => {
-    let res = await axios.get(url+"/api/auth/userlist");
-    //console.log(res.data);
-    let temp = res.data
-      .map((item) => item)
-      .filter((mp) => {
-        return mp.is_MP === false;
-      });
-    setNames(temp);
-  }, []);
+  
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let res = await axios.get(url+"/api/auth/userlist");
+      //console.log(res.data);
+      let temp = res.data
+        .map((item) => item)
+        .filter((mp) => {
+          return mp.is_MP === false;
+        });
+        
+      setNames(temp);
+    }
+    fetchData();
+
+  }, [url]);
 
   return (
     <>
-      <div className="container inner">
-        <h3>Access by user Identity Number </h3>
+      <div className="content-inner">
+        <h3>Access by Patient Identiy Number</h3>
+        <p><strong>Note: </strong> When you make a request, An OTP will be generated and sent to user's phone number. Enter the One Time Password below to get access.</p>
         <hr/>
         <div className="container2 request-card2">
           <div className="col">
@@ -144,6 +153,7 @@ const AccessById = () => {
                 </div>
               )}
             </div>
+            <hr/>
             <form onSubmit={handleOTPSubmit}>
               <div className="dark-card">
                 <div className="form-group col">

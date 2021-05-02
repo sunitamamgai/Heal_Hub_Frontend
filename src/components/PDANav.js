@@ -1,35 +1,25 @@
-import { propTypes } from "react-bootstrap/esm/Image";
+
 import { Link } from "react-router-dom";
-const PDANav = (props) => {
+const PDANav = () => {
 
-
-  const toggleID = ()=> {
-      props.handleIsID()
-  } 
-  
-  const toggleFP = ()=> {
-    props.handleIsFP()
-}
   return (
     <>
-      <button className="btn btn-dark" onClick={toggleID}>
-        <Link
+      <Link
           className="txt"
           to="/patientdetailaccess/accessbyid"
-          style={{ textDecoration: "none" }}
         >
-          Access By ID
-        </Link>
-      </button>
-      <button className="btn btn-dark" onClick={toggleFP}>
-        <Link
+        <button className="btn btn-dark">
+            Access By ID
+        </button>
+      </Link>
+      <Link
           className="txt"
           to="/patientdetailaccess/accessbyfp"
-          style={{ textDecoration: "none" }}
-        >
+      >
+      <button className="btn btn-dark" >
           Access By Fingerprint
-        </Link>
       </button>
+      </Link>
     </>
   );
 };

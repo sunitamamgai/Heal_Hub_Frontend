@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { loginContext, urlContext } from "../App";
-import { Redirect } from "react-router-dom";
 import ErrorScreen from "./ErrorScreen";
-import AuthScreen from "./AuthScreen";
 
 const LoginScreen = () => {
   const url = useContext(urlContext);
@@ -56,7 +54,7 @@ const LoginScreen = () => {
         console.log(error.response);
         setError(true);
       });
-    console.log("Logged In");
+    // console.log("Logged In");
   };
 
   useEffect(() => {
@@ -68,7 +66,7 @@ const LoginScreen = () => {
       {error ? (
         <ErrorScreen />
       ) : (
-        <div className="container">
+        <div className="sec-body-container">
           <div className="inner">
             <form onSubmit={handleSubmit}>
               <h3>Log in</h3>
@@ -96,14 +94,15 @@ const LoginScreen = () => {
                   value={log.password}
                 />
               </div>
-
+           
               <button type="submit" className="btn btn-dark btn-lg btn-block">
                 Sign in
               </button>
+            
 
-              <p className="forgot-password text-right">
+              {/* <p className="forgot-password text-right">
                 Forgot <a href="#">password?</a>
-              </p>
+              </p> */}
             </form>
           </div>
         </div>

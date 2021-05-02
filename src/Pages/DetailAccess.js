@@ -1,11 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { loginContext, urlContext } from "../App";
 import axios from "axios";
 import PrescriptionCard from "../components/PrescriptionCard";
 
 const DetailAccess = () => {
   const url = useContext(urlContext);
-  const { state, dispatch } = useContext(loginContext);
+  const {state} = useContext(loginContext);
   const [data, setData] = useState({
     did: "",
     pid: "",
@@ -22,9 +22,9 @@ const DetailAccess = () => {
       return { ...prevData, [name]: value };
     });
     setData((prevData) => {
-      return { ...prevData, ["did"]: state.user.id };
+      return { ...prevData, "did": state.user.id };
     });
-    console.log(data);
+    // console.log(data);
   };
 
   const handleSubmit = async (event) => {
@@ -42,7 +42,7 @@ const DetailAccess = () => {
       })
       .then((response) => {
         //   console.log(response);
-        if (response.data != "No Access") {
+        if (response.data !== "No Access") {
           setPres(response.data);
         } else {
           setPres([]);
@@ -50,7 +50,7 @@ const DetailAccess = () => {
           return;
         }
 
-        console.log(pres);
+        // console.log(pres);
       })
       .catch((error) => {
         console.log(error.response);
@@ -58,14 +58,12 @@ const DetailAccess = () => {
       });
   };
 
-  useEffect(() => {
-    console.log(pres);
-  }, [pres]);
 
   return (
     <>
-      <div className="container inner">
+      <div className="content-inner">
         <h3>Detail Access</h3>
+        <p><strong>Note: </strong>This tool must be used once the patient has granted you the access to their medical reports.</p>
         <hr />
         <form onSubmit={handleSubmit}>
           <div className="form-row">
@@ -77,7 +75,7 @@ const DetailAccess = () => {
                     type="number"
                     className="form-control"
                     id=""
-                    placeholder="Patient ID"
+                    placeholder="Enter Patient ID / User ID"
                     name="pid"
                     value={data.pid}
                     onChange={handleInputChange}
@@ -93,24 +91,17 @@ const DetailAccess = () => {
           </div>
         </form>
         <hr />
-        <div className="scrollable-container inner">
-          <div className="detail-container">
-            {pres.length != 0 ? (
-              <div className="request-card2 inner align-centre">
+        <div className="scrollable-container">
+          <div className="">
+            {pres.length !== 0 ? (
+              <div className="">
                 <div className="col">
                   <h3>User Prescription</h3>
                   <hr />
                   <table
-                    className="col-8 table table-sm inside-container"
-                    style={{
-                      maxHeight: 600,
-                      maxWidth: 400,
-                      overflow: "hidden",
-                      backgroundColor: "ActiveBorder",
-                    }}
-                    id="invoice-table"
+                    className="col table"
                   >
-                    <thead className=" thead-dark inside-container">
+                    <thead className="thead-dark">
                       <tr bgcolor="">
                         <th scope="col">Prescriber Id</th>
                         <th scope="col">Hospital or Clinic</th>
@@ -121,7 +112,6 @@ const DetailAccess = () => {
                         <th scope="col">Symptoms</th>
                         <th scope="col">Medicines</th>
                         <th scope="col">Notes</th>
-                        <th scope="col"></th>
                       </tr>
                     </thead>
                     <tbody className="">
@@ -135,7 +125,7 @@ const DetailAccess = () => {
                 </div>
               </div>
             ) : (
-              <div className="request-card2 inner">
+              <div className="profile-inner">
                 <p>
                   <strong>Note:</strong> Currently you have not searched any
                   Patient ID/User ID

@@ -1,32 +1,17 @@
-import { useEffect, useState} from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import AccessById from "./AccessById";
 import AccessByFP from "./AccessByFP";
 import PDANav from "../components/PDANav";
 
 
 const PatientDetailAccess = () => {
-  const [isID, setIsID] = useState(false);
-  const [isFP, setIsFP] = useState(false);
-
-  const handleIsID = () => {
-    console.log("IM ID");
-    setIsID(true);
-    setIsFP(false);
-  };
-
-  const handleIsFP = () => {
-    console.log("IM FP");
-    setIsID(false);
-    setIsFP(true);
-  };
-
-
+  
   return (
     <>
-      <div className="container inner">
-        <h3>Patient Detail Access</h3>
-        <div><PDANav handleIsFP={handleIsFP} handleIsID={handleIsID}/></div>
+      <div className="content-inner">
+        <h3>Access Verification Tool</h3>
+        <p><strong>Note: </strong>Use Access by fingerprint in those cases where the patient is unconscious or is incapable of communication.</p>
+        <div className="profile-inner"><PDANav/></div>
         <div className="container">
           <Switch>
             <Route
