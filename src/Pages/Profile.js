@@ -1,12 +1,64 @@
 import React, { useState, useContext } from "react";
-//import useProfileForm from "../customHooks/useProfileForm";
 import axios from "axios";
 import { loginContext, urlContext } from "../App";
+import moment from "moment"
 
 const Profile = () => {
   const url = useContext(urlContext);
  
   const { state } = useContext(loginContext);
+
+  const bloodGroups = [
+    { label: "Choose", value: "" },
+    { label: "A+", value: "A+" },
+    { label: "B+", value: "B+" },
+    { label: "AB+", value: "AB+"},
+    { label: "O+", value: "O+" },
+    { label: "O-", value: "O-" },
+    { label: "A-", value: "A-" },
+    { label: "B-", value: "B-" },
+    { label: "AB-", value: "AB-" }
+  ];
+
+  const states = [
+    { label: "Choose", value: "" },
+    { label: "Andhra Pradesh", value: "Andhra Pradesh" },
+    { label: "Arunachal Pradesh", value: "Arunachal Pradesh" },
+    { label: "Assam", value: "Assam"},
+    { label: "Bihar", value: "Bihar" },
+    { label: "Chhattisgarh", value: "Chhattisgarh" },
+    { label: "Goa", value: "Goa" },
+    { label: "Gujarat", value: "Gujarat" },
+    { label: "Haryana", value: "Haryana"},
+    { label: "Himachal Pradesh", value: "Himachal Pradesh" },
+    { label: "Jammu and Kashmir", value: "Jammu and Kashmir" },
+    { label: "Jharkhand", value: "Jharkhand" },
+    { label: "Karnataka", value: "Karnataka"},
+    { label: "Kerala", value: "Kerala" },
+    { label: "Madhya Pradesh", value: "Madhya Pradesh" },
+    { label: "Maharashtra", value: "Maharashtra" },
+    { label: "Manipur", value: "Manipur" },
+    { label: "Meghalaya", value: "Meghalaya"},
+    { label: "Mizoram", value: "Mizoram" },
+    { label: "Nagaland", value: "Nagaland" },
+    { label: "Odisha", value: "Odisha"},
+    { label: "Punjab", value: "Punjab" },
+    { label: "Rajasthan", value: "Rajasthan" },
+    { label: "Sikkim", value: "Sikkim" },
+    { label: "Tamil Nadu", value: "Tamil Nadu" },
+    { label: "Telangana", value: "Telangana"},
+    { label: "Tripura", value: "Tripura" },
+    { label: "Uttar Pradesh", value: "Uttar Pradesh" },
+    { label: "Uttarakhand", value: "Uttarakhand" },
+    { label: "West Bengal", value: "West Bengal" },
+  ]
+  
+  const genders = [
+    { label: "Choose", value: "" },
+    { label: "Male", value: "Male" },
+    { label: "Female", value: "Female" },
+    { label: "Others", value: "Others" }
+  ];
 
   const [profile, setProfile] = useState({
     user: state.user.id,
@@ -50,7 +102,7 @@ const Profile = () => {
       .then((response) => {
         alert("Data Submitted");
       })
-      .catch((error) => console.log(error.response.request._response));
+      .catch((error) => console.log(error.response.request));
   };
 
   return (
@@ -58,18 +110,11 @@ const Profile = () => {
       <div className="content-inner">
         <div className="">
           <div className="profile-inner">
-          <div className="row">
-            <div className="col">
-              <h3>Update Profile</h3>
-            </div> 
-            <div className="col-2"> 
-              <button onClick={handleSubmit} className="btn btn-primary" type="submit">
-                        Save
-              </button>
-            </div>  
+          <div className="row">  
+            <h3>Update Profile</h3> 
           </div>
           <hr/>
-            <form>
+            <form onSubmit={handleSubmit} >
               <div className="row">
                 <div className="col">
                   <label>First Name</label>
@@ -90,7 +135,6 @@ const Profile = () => {
                     onChange={handleInputChange}
                     value={profile.middleName}
                     autoComplete="off"
-                    placeholder="optional"
                   />
 
                   <label>Last Name</label>
@@ -104,16 +148,14 @@ const Profile = () => {
                   />
 
                   <label>Gender</label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="gender"
-                    onChange={handleInputChange}
-                    value={profile.gender}
-                    autoComplete="off"
-                    placeholder="Male or Female or Other"
-                  />
-
+                  <select name = "gender" value = {profile.gender} className = "form-control" onChange = {handleInputChange}>
+                    {genders.map((gender, index) => (
+                      <option key = {index} value = {gender.value}>
+                        {gender.label}
+                      </option>
+                    ))}
+                  </select>
+               
                   <label>Date of Birth</label>
                   <input
                     className="form-control"
@@ -122,18 +164,17 @@ const Profile = () => {
                     onChange={handleInputChange}
                     value={profile.dateOfBirth}
                     autoComplete="off"
+                    max={moment().format("YYYY-MM-DD")}
                   />
 
                   <label>Blood Group</label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="bloodGroup"
-                    onChange={handleInputChange}
-                    value={profile.bloodGroup}
-                    autoComplete="off"
-                    placeholder="O+,O-,A+,A-,AB+,AB-,B+,B-"
-                  />
+                  <select name = "bloodGroup" value = {profile.bloodGroup} className = "form-control" onChange = {handleInputChange}>
+                    {bloodGroups.map((bloodGroup, index) => (
+                      <option key = {index} value = {bloodGroup.value}>
+                        {bloodGroup.label}
+                      </option>
+                    ))}
+                  </select>
 
                 </div>
                 <div className="col">
@@ -165,7 +206,6 @@ const Profile = () => {
                     onChange={handleInputChange}
                     value={profile.alternateMobileNumber}
                     autoComplete="off"
-                    placeholder="optional"
                   />
 
                    <label>Address Line 1</label>
@@ -213,15 +253,14 @@ const Profile = () => {
                     />
 
                     <label>State</label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="state"
-                      onChange={handleInputChange}
-                      value={profile.state}
-                      autoComplete="off"
-                    />
-
+                    <select name = "state" value = {profile.state} className = "form-control" onChange = {handleInputChange}>
+                    {states.map((state, index) => (
+                      <option key = {index} value = {state.value}>
+                        {state.label}
+                      </option>
+                    ))}
+                    </select>
+                      
                     <label>Pin</label>
                     <input
                       className="form-control"
@@ -241,10 +280,17 @@ const Profile = () => {
                       value={profile.aadhaarCardNumber}
                       autoComplete="off"
                       placeholder=""
+                      minLength = '12'
+                      maxLength = '12'
                     />
                   </div>
                   <hr />
                   <p className="font-small"><strong>Note:</strong> When you fill this form and submit it, The data will reflect in your dashboard.</p>
+                  
+                  <button className="btn btn-primary" type="submit">
+                        Save
+                  </button>
+
                 </div>
               </div>
             </form>
