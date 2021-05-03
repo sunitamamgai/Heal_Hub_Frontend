@@ -205,7 +205,7 @@ const Prediction = () => {
           symptoms</p>
         <hr />
         <div className="profile-inner">
-        <p><strong>Note: </strong> Select 5 symptoms</p>
+        <p><strong>Note: </strong> Select minimum 3 symptoms</p>
         <div className="row">
           <div className="col-5">
             <img className="dp-img" src={DP} alt="#" />

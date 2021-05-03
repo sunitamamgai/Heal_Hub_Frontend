@@ -329,14 +329,6 @@ code {
   align-items: center;
 }
 
-.form-control {
-  margin-bottom: 10px;
-}
-
-.btn {
-  margin-bottom: 12px;
-}
-
 .outer .form-control:focus {
   border-color: #167bff;
   box-shadow: none;
