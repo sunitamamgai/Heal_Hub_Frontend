@@ -14,20 +14,21 @@ const Prescription = () => {
   useEffect(
     () => {
       const getData = async () => {
-        const response = await axios.get(
-          url+`/api/v1/PrescriptionInfoOfSpecificUser/`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: "Token " + state.token,
-            },
-          }
-        );
-        setPrescriptions(response.data);
-        //console.log(response.data);
-        // console.log(prescriptions);
+        try {
+          const response = await axios.get(
+            url+`/api/v1/PrescriptionInfoOfSpecificUser/`,
+            {
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: "Token " + state.token,
+              },
+            }
+          );
+          setPrescriptions(response.data);
+        } catch (err) {
+          console.log(err.response);
+        }
       }
-
       getData();
     },
     [state.token, url]

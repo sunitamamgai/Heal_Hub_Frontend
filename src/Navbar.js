@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="nav-container navbar navbar-expand-lg">
+      <nav className="nav-container navbar">
         <div className="container-fluid">
         
           <img src={logo} alt="HEALHUB" height="40px" />
@@ -46,7 +46,7 @@ const Navbar = () => {
                </> 
               ) : (
                 <>
-                <div className="row  align-centre">
+                <div className="row align-centre">
                   <li className="nav-item">
                     <Link
                         className="txt"

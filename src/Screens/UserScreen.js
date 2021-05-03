@@ -33,7 +33,7 @@ const UserScreen = () => {
 
   return (
     <>
-      <div className="sec-body-container-after-login">
+      <div className="body-container">
         <div className="row">
             <div className="menu-body-container">
               <Menu />

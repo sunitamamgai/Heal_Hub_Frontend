@@ -112,13 +112,6 @@ body {
   background-color: #212529;
 }
 
-.sec-body-container-after-login {
-  height: 100vh;
-  width: 100%;
-  display: table;
-}
-
-
 .menu-body-container {
   position: fixed;
   height: 100vh;
@@ -334,6 +327,14 @@ code {
 
 .searchrow {
   align-items: center;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+.btn {
+  margin-bottom: 12px;
 }
 
 .outer .form-control:focus {

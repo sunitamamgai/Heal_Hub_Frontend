@@ -68,17 +68,21 @@ const Insurance = () => {
   //AXIOS GET REQUEST
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get(
-        url+`/api/v1/InsuranceInfo/`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Token " + state.token,
-          },
-        }
-      );
-      // console.log(response.data);
-      setInsurances(response.data);
+      try {
+        const response = await axios.get(
+          url+`/api/v1/InsuranceInfo/`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": "Token " + state.token,
+            },
+          }
+        );
+        setInsurances(response.data);
+      } catch (err) {
+        console.log(err.response);
+      }
+     
     }
 
     getData();

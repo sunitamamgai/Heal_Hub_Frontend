@@ -69,7 +69,7 @@ const DetailAccess = () => {
           <div className="form-row">
             <div className="form-group col">
               <label>Patient ID/ User ID</label>
-              <div className="row align-centre">
+              <div className="row  align-centre">
                 <div className="col-9">
                   <input
                     type="number"

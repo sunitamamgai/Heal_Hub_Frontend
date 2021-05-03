@@ -10,10 +10,16 @@ const ProfileCard = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      let res = await axios.get(
-        url+"/api/v1/PersonalInfoOfSpecificUser/" + state.user.id
-      );
-      setData(res.data);
+      let res = null;
+      try {
+        res = await axios.get(
+          url+"/api/v1/PersonalInfoOfSpecificUser/" + state.user.id
+        );
+        setData(res.data);
+      } catch (err) {
+        console.log(err.response);
+      }
+     
     }
     
     fetchData();
@@ -65,7 +71,7 @@ const ProfileCard = () => {
                   </div>
                    <div className="row">
                     <p>
-                      <strong>Address:</strong> {data["addressLine1"]} {data["addressLine2"]}, {data["cityOrTown"]},  {data["district"]}, {data["state"]}, {data["pin"]}
+                      <strong>Address:</strong> {data["addressLine"]}, {data["cityOrTown"]},  {data["district"]}, {data["state"]}, {data["pin"]}
                     </p>
                   </div>
                 </div>
