@@ -73,7 +73,7 @@ const LoginScreen = () => {
               <div className="">
                 <form onSubmit={handleSubmit} className="auth-inner">
                   <p className="bold-300">
-                    <span class=" material-icons">login</span>Log in
+                    <span className=" material-icons">login</span>Log in
                   </p>
                   <div className="form-group">
                     <label>Username</label>

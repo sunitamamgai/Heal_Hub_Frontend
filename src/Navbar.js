@@ -47,7 +47,7 @@ const Navbar = () => {
                         to="/"
                         style={{ textDecoration: "none" }}
                       >
-                        <span class="material-icons">home</span> Home
+                        <span className="material-icons">home</span> Home
                       </Link>
                     </li>
                     <li className="nav-item ">
@@ -56,7 +56,7 @@ const Navbar = () => {
                         to="/login"
                         style={{ textDecoration: "none" }}
                       >
-                        <span class="material-icons">login</span>  Login
+                        <span className="material-icons">login</span>  Login
                       </Link>
                     </li>
                     <li className="nav-item">

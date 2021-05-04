@@ -65,7 +65,7 @@ const RegisterScreen = () => {
             <div className="auth-inner">
               <form onSubmit={handleSubmit}>
                 <p className="bold-300">
-                  <span class="material-icons">login</span>Register
+                  <span className="material-icons">login</span>Register
                 </p>
 
                 <div className="form-group">
