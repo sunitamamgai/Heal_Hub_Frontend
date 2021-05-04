@@ -1,79 +1,73 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import logo from "./assets/Images/healhub-logo.png";
 import { loginContext } from "./App";
 
 const Navbar = () => {
   const { state, dispatch } = useContext(loginContext);
-  
+
   const logoutHandler = () => {
     dispatch({
       type: "LOGOUT",
     });
-
   };
 
   return (
     <>
       <nav className="nav-container navbar">
         <div className="container-fluid">
-        
-          <img src={logo} alt="HEALHUB" height="40px" />
-    
+          <div className="white nav-logo"><h6 className="align-centre  lobster-font"><span className="material-icons">health_and_safety</span>HealHub</h6></div>
+
           <div className="">
-            <ul className="navbar-nav  align-centre">
+            <ul className="navbar-nav">
               {state.isAuthenticated ? (
                 <>
-                <div className="row align-centre">
-                  <li className="nav-item white">
-                    <strong> Logged in as : {state.user.username} </strong>
-                  </li>
-                
-                  <li className="nav-item">
-                  <Link
-                  to="/"
-                  >
-                    <button
-                      className="btn btn-primary btn-sm"
-                      onClick={logoutHandler}
-                    >
-                      Logout
-                    </button>
-                  </Link>  
-                  </li>
-                </div>
+                  <div className="row align-centre">
+                    <li className="nav-item white">
+                      Logged in as:- {state.user.username}
+                    </li>
 
-               </> 
+                    <li className="nav-item">
+                      <Link to="/">
+                        <button
+                          className="btn btn-primary btn-sm"
+                          onClick={logoutHandler}
+                        >
+                          Logout
+                        </button>
+                      </Link>
+                    </li>
+                  </div>
+                </>
               ) : (
                 <>
-                <div className="row align-centre">
-                  <li className="nav-item">
-                    <Link
-                        className="txt"
+                  <div className="row align-centre">
+                    <li className="nav-item">
+                      <Link
+                        className="txt align-centre"
                         to="/"
                         style={{ textDecoration: "none" }}
                       >
-                       <h6 style={{paddingRight:20}}> Home </h6>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link
-                        className="txt"
+                        <span class="material-icons">home</span> Home
+                      </Link>
+                    </li>
+                    <li className="nav-item ">
+                      <Link
+                        className="txt align-centre"
                         to="/login"
                         style={{ textDecoration: "none" }}
                       >
-                       <h6 style={{paddingRight:20}}> Login </h6>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                     <Link
+                        <span class="material-icons">login</span>  Login
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link
                         className="txt"
                         to="/register"
                         style={{ textDecoration: "none" }}
                       >
-                        <h6 style={{paddingRight:20}}>Register</h6>
-                    </Link>
-                  </li>
+                        <button className="btn btn-primary">Register</button>
+                      </Link>
+                    </li>
                   </div>
                 </>
               )}

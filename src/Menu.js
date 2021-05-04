@@ -16,7 +16,7 @@ const Menu = () => {
             <>
               <li className = {"li-font"+ ("l1"===active ? " active" : "")} onClick={()=> setActive("l1")}>
                 <Link
-                  className="txt align-centre"
+                  className="txt align-centre black"
                   to="/ddashboard"
                   style = {{ textDecoration: "none" }}
                 >

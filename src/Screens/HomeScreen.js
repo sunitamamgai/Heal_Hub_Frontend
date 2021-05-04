@@ -1,6 +1,7 @@
-import home1 from "../assets/Images/home-1.jpg";
-import support from "../assets/Images/support.jpg";
-import security from "../assets/Images/security.png";
+import home1 from "../assets/Images/HEALHUB-LOGO.png";
+import about from "../assets/Images/HEALHUB-ABOUT.png";
+import support from "../assets/Images/HEALHUB-SUPPORT.png";
+import security from "../assets/Images/HEALHUB-SECURITY.png";
 import { Link } from "react-router-dom";
 // import logo from "../assets/Images/healhub-logo.png";
 
@@ -13,9 +14,11 @@ const HomeScreen = () => {
                         <img className="home-1-img" src={home1} alt="#" />
                         <div className="col">
                             {/* <img src={logo} alt="HEALHUB" height="200px" /> */}
-                            <p className="bold-900" >HealHub<span className="icon-size-sm material-icons">health_and_safety</span></p>
-                            <p className="font-medium">An Electronic Health Record Management System. A secure place to store your Health Records.</p>
-                            <Link to="/register"><button className="btn-1">Register</button></Link>    
+                            <div className="healhub-frontline">
+                                <p className="bold-900 lobster-font" >HealHub<span className="icon-size-sm material-icons">health_and_safety</span></p>
+                                <p className="font-medium">An Electronic Health Record Management System. A secure place to store your Health Records.</p>
+                                <Link to="/register"><button className="btn-1">Register</button></Link>
+                            </div>    
                         </div>
                     </div>     
                     
@@ -33,7 +36,7 @@ Medical emergencies can happen anytime and anywhere. A number of cases has been 
                             </div>  
                         </div>
                         <div className="col align-centre">
-                            <img className="home-1-img" src={home1} alt="#" /> 
+                            <img className="home-1-img" src={about} alt="#" /> 
                         </div>
                     </div> 
                     
