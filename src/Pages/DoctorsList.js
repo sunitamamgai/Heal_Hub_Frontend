@@ -25,36 +25,20 @@ const DoctorsList = () => {
     };
     fetchData();
   }, [url, state.token]);
-  
+
   return (
     <>
       <div className="content-inner">
-        <h1>Doctors List</h1>
+        <p className="bold-300">Doctors List</p>
         <p>
           <strong>Note: </strong>Here you can see the list of doctors who has
           access to your data.
         </p>
         <hr />
         <div className="">
-          <table
-            className="table table-boardered table-striped"
-            id="invoice-table"
-          >
-            <thead className="thead-dark">
-              <tr bgcolor="">
-                <th scope="col">Doctors ID</th>
-                <th scope="col">Doctor's Name</th>
-                <th scope="col">Doctor's Organization ID</th>
-                <th scope="col">Contact Number</th>
-                <th scope="col">Take Access</th>
-              </tr>
-            </thead>
-            <tbody>
-              {doctors.map((value, index) => {
-                return <DoctorsCard data={value} key={index} id={value.id} />;
-              })}
-            </tbody>
-          </table>
+          {doctors.map((value, index) => {
+            return <DoctorsCard data={value} key={index} id={value.id} />;
+          })}
         </div>
       </div>
     </>

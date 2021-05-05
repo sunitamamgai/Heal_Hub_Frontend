@@ -8,7 +8,7 @@ import HomeScreen from "./HomeScreen";
 const OnboardingScreen = () => {
   return (
     <>
-      <div className="body-container">
+      <div className="">
           <Switch>
             <Route exact path="/" component={HomeScreen}/>
             <Route exact path="/login" component={LoginScreen} />

@@ -8,7 +8,7 @@ const DProfileCard = () => {
   const [showModal, setShowModal] = useState(false);
   const toggleShowModal = () => {
     setShowModal((prevData) => !prevData);
-    console.log(showModal);
+    
   };
 
   const { state } = useContext(loginContext);

@@ -45,7 +45,7 @@ const ProfileCard = () => {
                     {data["middleName"]} {data["lastName"]}</strong></p>
                   </div> 
                 </div>
-                <div className="col profile-container2 font-medium">
+                <div className="col font-medium">
 
                   <div className="row">
                     <p>

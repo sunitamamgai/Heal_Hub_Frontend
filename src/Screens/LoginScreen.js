@@ -67,60 +67,46 @@ const LoginScreen = () => {
       {error ? (
         <ErrorScreen />
       ) : (
-        <div className="sec-body-container">
-          <div className="home-content-inner align-centre">
-            <div className="login-container">
-              <div className="">
-                <form onSubmit={handleSubmit} className="auth-inner">
-                  <p className="bold-300">
-                    <span className=" material-icons">login</span>Log in
-                  </p>
-                  <div className="form-group">
-                    <label>Username</label>
-                    <input
-                      type="text"
-                      className="form-control "
-                      placeholder="Enter username"
-                      name="username"
-                      onChange={onChangeHandler}
-                      value={log.username}
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label>Password</label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      placeholder="Enter password"
-                      name="password"
-                      onChange={onChangeHandler}
-                      value={log.password}
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="btn btn-dark btn-lg btn-block"
-                  >
-                    Sign in
-                  </button>
-                  <hr />
-
-                  <p>
-                    By signing in you're accepting the{" "}
-                    <strong>terms of service</strong>
-                  </p>
-                  {/* <p className="forgot-password text-right">
-                Forgot <a href="#">password?</a>
-              </p> */}
-                </form>
-              </div>
+        <div className="login-content-inner">
+           <img className="home-1-img" src={loginimg} alt="#" />
+          <form onSubmit={handleSubmit} className="auth-inner">
+            <p className="bold-300">
+              <span className=" material-icons">login</span>Log in
+            </p>
+            <div className="form-group">
+              <label>Username</label>
+              <input
+                type="text"
+                className="form-control  form-control-sm"
+                placeholder="Enter username"
+                name="username"
+                onChange={onChangeHandler}
+                value={log.username}
+              />
             </div>
-            <div className="">
-              <img className="home-1-img" src={loginimg} alt="#" />
+
+            <div className="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                className="form-control form-control-sm"
+                placeholder="Enter password"
+                name="password"
+                onChange={onChangeHandler}
+                value={log.password}
+              />
             </div>
-          </div>
+
+            <button type="submit" className="btn btn-dark btn-sm">
+              Sign in
+            </button>
+            <hr />
+
+            <p>
+              By signing in you're accepting the{" "}
+              <strong>terms of service</strong>
+            </p>
+          </form>
         </div>
       )}
     </>
