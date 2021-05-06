@@ -175,7 +175,6 @@ const HomeScreen = () => {
                 </p>
               </div>
               <div className="profile-inner">
-             
                 <p style={{ textAlign: "justify" }}>
                   HealHub is a mobile friendly platform. Now you can access the
                   platform by just scanning this QR-code using your Device. Why

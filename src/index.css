@@ -122,17 +122,19 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
-
   overflow-x: hidden;
 }
 
 .sec-home-body-container {
+  position: absolute;
   height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* justify-content: flex-start ; */
   overflow-y: scroll;
+  border: red 2px solid;
 }
 
 .menu-body-container {
@@ -167,6 +169,7 @@ ul .menu-ul-list li {
   padding-left: 20px;
   padding-right: 20px;
   overflow-y: scroll;
+
 }
 
 .nav-container {
