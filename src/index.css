@@ -688,7 +688,7 @@ p {
   }
 
   .menu-dropdown.active {
-    opacity: 100%;
+    opacity: 1.0;
     pointer-events: all;
   }
 }
