@@ -37,22 +37,22 @@ const Navbar = () => {
                 {state.user.is_MP ? (
                   <>
                     <div className={"menu-dropdown" + (menu ? " active" : "")}>
-                      <Link to="/ddashboard" ><div>Dashboard</div></Link>
-                      <Link to="/prescribe" ><div>Prescribe</div></Link>
-                      <Link to="/finduser" ><div>Find User</div></Link>
-                      <Link to="/prediction" ><div>Disease Prediction Tool</div></Link>
-                      <Link to="/patientdetailaccess" ><div>Access Verification Tool</div></Link>
-                      <Link to="/detailaccess" ><div>Patient Detail Access</div></Link>
+                      <Link to="/ddashboard" onClick={() => setMenu(!menu)} ><div>Dashboard</div></Link>
+                      <Link to="/prescribe" onClick={() => setMenu(!menu)} ><div>Prescribe</div></Link>
+                      <Link to="/finduser" onClick={() => setMenu(!menu)} ><div>Find User</div></Link>
+                      <Link to="/prediction" onClick={() => setMenu(!menu)} ><div>Disease Prediction Tool</div></Link>
+                      <Link to="/patientdetailaccess" onClick={() => setMenu(!menu)} ><div>Access Verification Tool</div></Link>
+                      <Link to="/detailaccess" onClick={() => setMenu(!menu)} ><div>Patient Detail Access</div></Link>
                     </div>
                   </>
                 ) : (
                   <>
                     <div className={"menu-dropdown" + (menu ? " active" : "")}>
-                      <Link to="/dashboard" ><div>Dashboard</div></Link>
-                      <Link to="/profile" ><div>Profile</div></Link>
-                      <Link to="/insurance" ><div>Insurance</div></Link>
-                      <Link to="/prescription" ><div>Prescription</div></Link>
-                      <Link to="/doctorslist" ><div>Doctor's List</div></Link>
+                      <Link to="/dashboard" onClick={() => setMenu(!menu)}><div>Dashboard</div></Link>
+                      <Link to="/profile" onClick={() => setMenu(!menu)}><div>Profile</div></Link>
+                      <Link to="/insurance" onClick={() => setMenu(!menu)}><div>Insurance</div></Link>
+                      <Link to="/prescription" onClick={() => setMenu(!menu)}><div>Prescription</div></Link>
+                      <Link to="/doctorslist" onClick={() => setMenu(!menu)}><div>Doctor's List</div></Link>
                     </div>
                   </>
                 )}
@@ -111,11 +111,12 @@ const Navbar = () => {
                   </li>
                   <li className="nav-item">
                     <Link
-                      className="txt"
+                      className="txt align-centre"
                       to="/register"
                       style={{ textDecoration: "none" }}
-                    >
-                      <button className="btn btn-primary">Register</button>
+                    > 
+                        <span class="material-icons">person_add </span>
+                       Register
                     </Link>
                   </li>
                 </div>
@@ -131,16 +132,17 @@ const Navbar = () => {
               <span className="material-icons">menu</span>
             </button>
             <div className={"dropdown" + (click ? " active" : "")}>
-              <Link to="/" style={{ textDecoration: "none" }}>
-                <div>Home</div>
+              <Link to="/"  onClick={handleClick} style={{ textDecoration: "none" }}>
+                <div className="">Home</div>
               </Link>
-              <Link to="/login" style={{ textDecoration: "none" }}>
-                <div>Login</div>
+              <Link to="/login"  onClick={handleClick} style={{ textDecoration: "none" }}>
+                <div className="">Login</div>
               </Link>
-              <Link to="/register" style={{ textDecoration: "none" }}>
-                <div>Register</div>
+              <Link to="/register"  onClick={handleClick} style={{ textDecoration: "none" }}>
+                <div className="">Register</div>
               </Link>
             </div>
+            
           </div>
         )}
       </div>
