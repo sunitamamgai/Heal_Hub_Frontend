@@ -30,6 +30,14 @@ a {
   color: #ffffff;
 }
 
+button:focus {
+  outline: none;
+}
+
+button:active {
+  color: #a7d7c5;
+}
+
 .lobster-font {
   font-family: "Lobster";
 }
@@ -777,7 +785,7 @@ p {
   }
 
   .dropdown.active {
-    opacity: 100%;
+    opacity: 1.0;
     pointer-events: all;
   }
 
