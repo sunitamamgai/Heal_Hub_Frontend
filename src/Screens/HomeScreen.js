@@ -39,8 +39,8 @@ const HomeScreen = () => {
 
           <div className="home-content-inner2-inner">
             <div className="profile-inner">
-              <h1>What is HealHub?</h1>
               <p style={{ textAlign: "justify" }}>
+                <strong>What is HealHub?</strong><br/>
                 HealHub helps to store and maintain the health records of a
                 patient and provide patient’s the facility to share their
                 medical records with any Medical Practitioner at their own ease.
@@ -68,8 +68,8 @@ const HomeScreen = () => {
           </div>
           <div className="home-content-inner2-inner">
             <div className="profile-inner">
-              <h1>Patient's</h1>
               <p style={{ textAlign: "justify" }}>
+                <strong>Patient's</strong><br/>
                 A patient is a stakeholder who requires medical care and
                 treatment based on his past Medial History. Here a patient can
                 store his Medical History data safely and securely. He can as
@@ -78,8 +78,8 @@ const HomeScreen = () => {
               </p>
             </div>
             <div className="profile-inner">
-              <h1>Doctor's</h1>
               <p style={{ textAlign: "justify" }}>
+                <strong>Doctor's</strong><br/>
                 Doctors are the prime stakeholder, who will have utmost benefit
                 from this platform. They will be able to access patient’s health
                 record with ease and will be able to serve their best for the
@@ -100,8 +100,8 @@ const HomeScreen = () => {
             </div>
             <div className="">
               <div className="profile-inner">
-                <h1>How your data is secure with us?</h1>
                 <p style={{ textAlign: "justify" }}>
+                  <strong>How your data is secure with us?</strong><br/>
                   Authentication is the mechanism of associating an incoming
                   request with a set of identifying credentials, such as the
                   user the request came from, or the token that it was signed
@@ -138,8 +138,8 @@ const HomeScreen = () => {
           </div>
           <div className="home-content-inner2-inner">
             <div className="profile-inner">
-              <h1>Found a Bug or Issue ?</h1>
               <p style={{ textAlign: "justify" }}>
+               <strong>Found a Bug or Issue ?</strong><br/>
                 We assure customer reliability for our web portal. Support team
                 is available to resolve any issue arose while using the web
                 application.
