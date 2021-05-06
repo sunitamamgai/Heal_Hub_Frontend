@@ -293,6 +293,7 @@ ul .menu-ul-list li {
 
 .home-content-inner {
   width: 100%;
+  height: auto;
   background: #ffffff;
   padding: 90px;
   margin: 10px;
@@ -324,6 +325,7 @@ ul .menu-ul-list li {
 
 .home-content-inner2 {
   width: 100%;
+  height: auto;
   background: #ffffff;
   padding: 40px;
   margin: 10px;
