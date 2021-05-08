@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { loginContext, urlContext } from "../App";
 import moment from "moment";
+import toast from "react-hot-toast";
 
 const Profile = () => {
   const url = useContext(urlContext);
@@ -120,10 +121,12 @@ const Profile = () => {
         }
       )
       .then((response) => {
-        alert("Profile Updated Successfully.");
+        // alert("Profile Updated Successfully.");
+        toast.success("Profile Updated Successfully.");
       })
       .catch((error) => {
         console.log(error.response);
+        toast.error("Couldn't Update.");
       });
   };
 
@@ -177,6 +180,7 @@ const Profile = () => {
         <div className="profile-inner">
           <div className="row">
             <p className="bold-300">Update Profile</p>
+           
           </div>
           <hr />
           <form onSubmit={handle_Submit}>

@@ -5,6 +5,7 @@ import ErrorScreen from "./ErrorScreen";
 import { useHistory } from "react-router-dom";
 import loginimg from "../assets/Images/HEALHUB-LOGIN.png";
 
+
 const LoginScreen = () => {
   const url = useContext(urlContext);
   const { state, dispatch } = useContext(loginContext);
@@ -40,6 +41,7 @@ const LoginScreen = () => {
 
         const user = response.data.user;
         const token = response.data.token;
+       
 
         dispatch({
           type: "LOGIN",

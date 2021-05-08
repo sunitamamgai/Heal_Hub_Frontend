@@ -132,9 +132,7 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: flex-start ; */
   overflow-y: scroll;
-  /* border: red 2px solid; */
 }
 
 .menu-body-container {
@@ -408,7 +406,7 @@ ul .menu-ul-list li {
   padding: 5px;
   border-radius: 10px;
   transition: all 0.3s;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .stakeholders-inner {
@@ -497,7 +495,8 @@ p {
   height: 80%;
   width: 100%;
   background-color: white;
-  overflow-x: scroll;
+  overflow: scroll;
+
 }
 
 .light-card {

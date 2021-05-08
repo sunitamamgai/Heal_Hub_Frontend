@@ -3,7 +3,6 @@ import about from "../assets/Images/HEALHUB-ABOUT.png";
 import support from "../assets/Images/HEALHUB-SUPPORT.png";
 import security from "../assets/Images/HEALHUB-SECURITY.png";
 import qrcode from "../assets/Images/HEALHUB-QRCODE.png";
-import scanner from "../assets/Images/HEALHUB-SCANNER.png";
 import { Link } from "react-router-dom";
 
 const HomeScreen = () => {
@@ -52,7 +51,6 @@ const HomeScreen = () => {
                 one place.
               </p>
             </div>
-
             <img className="home-1-img" src={about} alt="#" />
           </div>
         </div>
@@ -182,9 +180,7 @@ const HomeScreen = () => {
                 </p>
               </div>
             </div>
-            <div className="">
-              <img className="home-1-img" src={scanner} alt="#" />
-            </div>
+
           </div>
         </div>
       </div>
