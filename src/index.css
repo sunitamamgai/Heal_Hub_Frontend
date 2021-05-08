@@ -167,7 +167,6 @@ ul .menu-ul-list li {
   padding-left: 20px;
   padding-right: 20px;
   overflow-y: scroll;
-
 }
 
 .nav-container {
@@ -669,7 +668,7 @@ p {
     display: flex;
   }
 
-  
+
   .burger-menu-button {
     position: absolute;
     top: 20px;
@@ -772,7 +771,7 @@ p {
     height: 50px;
     display: flex;
     flex-direction: row;
-  
+
   }
 
   .burger-button {
@@ -806,16 +805,22 @@ p {
     pointer-events: all;
   }
 
+  .content-container {
+    padding: 0px;
+  }
+
   .content-inner {
     width: 100%;
-    height: 88%;
+    height: 100%;
     padding: 10px;
+    margin-top: 0px;
+   
   }
 
   .input-row {
     flex-direction: column;
     justify-content: center;
-   
+
   }
 
   .profile-inner {
