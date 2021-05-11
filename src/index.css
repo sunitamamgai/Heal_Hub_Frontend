@@ -563,7 +563,7 @@ p {
 
 /*---------------------------MEDIA QUERY FOR 1221 PX-----------------------------------------*/
 
-@media only screen and (max-width: 1221px) {
+@media only screen and (max-width: 1221px), screen and (max-height:751px )  {
   .bold-900 {
     font-size: 70px;
   }
@@ -586,7 +586,7 @@ p {
 
 /*---------------------------MEDIA QUERY FOR 885 PX-----------------------------------------*/
 
-@media only screen and (max-width: 885px) {
+@media only screen and (max-width: 885px ) , screen and (max-height:575px )  {
   .bold-900 {
     font-size: 50px;
   }
@@ -706,7 +706,7 @@ p {
 
 /*---------------------------MEDIA QUERY FOR 455 PX-----------------------------------------*/
 
-@media only screen and (max-width: 455px) {
+@media only screen and (max-width: 455px) , screen and (max-height:500px )   {
   .qrcode {
     height: 100px;
     width: 100px;
