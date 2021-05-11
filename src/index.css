@@ -5,6 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 html {
   height: 100%;
@@ -16,8 +17,9 @@ body {
   min-height: 100%;
   width: 100%;
   overflow: hidden;
-  font-family: "Roboto", "Lobster", "sans-serif", cursive;
-  background-color: #393e46;
+  font-family: "Roboto","Poppins", "sans-serif", cursive;
+  /* background-color: #393e46; */
+  background-image: linear-gradient(to left,#393e46, #2d3436, #393e46);
 }
 
 @media print {
@@ -28,6 +30,15 @@ body {
 
 a {
   color: #ffffff;
+}
+
+a:hover {
+  color: #ffffff;
+}
+
+.txt-1 {
+  font-size: 20px;
+  font-weight: 200;
 }
 
 button:focus {
@@ -41,6 +52,11 @@ button:active {
 .lobster-font {
   font-family: "Lobster";
 }
+
+.poppins-font {
+  font-family: "Poppins";
+}
+
 
 .icon-size {
   font-size: 70px;
@@ -70,6 +86,13 @@ li {
   justify-content: space-around;
 }
 
+.input-row-1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .input-col {
   display: flex;
   flex-direction: column;
@@ -86,9 +109,15 @@ li {
 
 .li-font:hover {
   background-color: #333333;
+  background: linear-gradient(to right, #393e46, #2d3436, #393e46); 
+  border-radius: 2px;
+  margin: 5px;
+  transition: 0.5s;
 }
 .active {
-  background: linear-gradient(to right, #333333 95%, #a7d7c5 5%);
+  background: linear-gradient(to right, #393e46, #2d3436, #393e46 95%, #a7d7c5 5%);
+  border-radius: 2px;
+  margin: 5px;
 }
 
 .bold-900 {
@@ -140,6 +169,7 @@ li {
   left: 0px;
   height: 100vh;
   width: 250px;
+  background-image: linear-gradient(to bottom,#212521, #2d3436, #212521);
   background-color: #212529;
   z-index: 1;
   overflow: scroll;
@@ -167,11 +197,13 @@ ul .menu-ul-list li {
   padding-left: 20px;
   padding-right: 20px;
   overflow-y: scroll;
+  
 }
 
 .nav-container {
   width: 100%;
-  background-color: #212529;
+  background-image: linear-gradient(to left,#212521, #2d3436, #212521);
+  /* background-color: #212529; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
   z-index: 2;
   display: flex;
@@ -233,6 +265,10 @@ ul .menu-ul-list li {
   margin: 3px;
 }
 
+.home-btn {
+  height: 40px;
+}
+
 .txt {
   color: #ffffff;
   margin: 0px 10px 0px 10px;
@@ -242,11 +278,6 @@ ul .menu-ul-list li {
   background-color: #00587a;
 }
 
-/* .input_field {
-  width: 500px;
-  padding: 10px;
-} */
-
 .card {
   border-radius: 5px;
   box-shadow: 20;
@@ -254,8 +285,6 @@ ul .menu-ul-list li {
   width: 500px;
   margin-top: 5px;
 }
-
-/* ---------------------------------------- */
 
 .inner {
   width: 450px;
@@ -269,18 +298,18 @@ ul .menu-ul-list li {
 
 .auth-inner {
   width: 450px;
-  margin: auto;
   background: #ffffff;
-  padding: 40px 40px 40px 40px;
+  padding: 40px;
   border-radius: 15px;
-  transition: all 0.3s;
+  transition: all 0.6s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
 }
 
 .content-inner {
   width: 89%;
   height: 88%;
   margin-top: 20px;
-  background: #ffffff;
+  background-image: linear-gradient(to right,#f6f6f6, #ffffff, #f6f6f6);
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
   padding: 40px 40px 40px 40px;
   border-radius: 5px;
@@ -292,13 +321,10 @@ ul .menu-ul-list li {
   width: 100%;
   height: auto;
   background: #ffffff;
-  padding: 90px;
-  margin: 10px;
-  border-radius: 10px;
+  padding: 90px 100px 90px 100px;
   transition: all 0.3s;
-
-  background-image: url("./assets/Images/HEALHUB-BUBBLES.png");
-  background-size: cover;
+  /* background-image: url("./assets/Images/HEALHUB-BUBBLES.png");
+  background-size: cover; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -322,27 +348,41 @@ ul .menu-ul-list li {
 
 .home-content-inner2 {
   width: 100%;
-  height: 120vh;
   background: #ffffff;
-  padding: 40px;
-  margin: 10px;
-  border-radius: 10px;
+  padding: 30px;
   transition: all 0.3s;
-
-  background-image: url("./assets/Images/HEALHUB-BUBBLES.png");
-  background-size: cover;
+ 
+  /* background-image: url("./assets/Images/HEALHUB-BUBBLES.png");
+  background-size: cover; */
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   /* border: red 2px solid; */
 }
 
 .home-content-inner2-inner {
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  
+}
+
+.home-content-inner2-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #212529;
+  
+}
+.home-content-inner2-footer-inner {
+  height: 100px;
+  color: white;
+ 
 }
 
 .heading {
@@ -350,28 +390,35 @@ ul .menu-ul-list li {
 
 }
 
-/* .sec-login-body-container {
-  height: 100%;
-  width: 100%;
-} */
-
 .login-content-inner {
-  background: #ffffff;
-  border-radius: 10px;
+  background-color: #a7d7c5;
+  background-image: linear-gradient(315deg,#3ad49c, #a7d7c5 40%, #fffcff 0%);
+  /* border-radius: 10px; */
   transition: all 0.3s;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
-  padding: 100px 130px 100px 130px;
+  width: 100%;
+  height: 100%;
+  padding: 100px;
 }
 
 .x-axis-scroll {
   overflow-x: scroll;
 }
 
+.homelogo {
+  height: 100px;
+  width: auto;
+}
+
 .home-1-img {
+  height: 350px;
+  width: auto;
+}
+
+.auth-img {
   height: 500px;
   width: auto;
 }
@@ -561,6 +608,13 @@ p {
   text-align: center;
 }
 
+.healhub-frontline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
 /*---------------------------MEDIA QUERY FOR 1221 PX-----------------------------------------*/
 
 @media only screen and (max-width: 1221px), screen and (max-height:751px )  {
@@ -579,9 +633,20 @@ p {
     height: 300px;
   }
 
+  .auth-img {
+    height: 400px;
+  }
+  
+
   .home-2-img {
     height: 300px;
   }
+
+  .login-content-inner {
+    padding: 30px;
+  }
+
+
 }
 
 /*---------------------------MEDIA QUERY FOR 885 PX-----------------------------------------*/
@@ -609,11 +674,26 @@ p {
 
   .home-1-img {
     height: 250px;
-    width: auto;
+    margin-top: 10px;
   }
+
+  .auth-img {
+    height: 250px;
+  }
+  
 
   .home-2-img {
     height: 250px;
+  }
+
+  .homelogo {
+    height: 60px;
+    width: auto;
+  }
+
+  .txt-1 {
+    font-size: 15px;
+    text-align: center;
   }
 
   h1 {
@@ -623,19 +703,16 @@ p {
   .home-content-inner {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    padding: 30px;
+    padding: 50px 30px 30px 30px;
+
   }
 
   .qr-container {
     align-items: center;
   }
 
-  .auth-inner {
-    width: 280px;
-    padding: 10px;
-  }
 
   .login-content-inner {
     padding: 30px;
@@ -722,7 +799,7 @@ p {
   }
 
   .bold-500 {
-    font-size: 30px;
+    font-size: 40px;
     height: 30px;
   }
 
@@ -742,9 +819,13 @@ p {
   }
 
   .home-1-img {
+    height: 150px;
+  }
 
+  .auth-img {
     display: none;
   }
+  
 
   .home-2-img {
     display: none;
@@ -759,7 +840,7 @@ p {
   }
 
   .btn {
-    font-size: 10px;
+    font-size: 15px;
   }
 
   .body-container {
@@ -771,7 +852,6 @@ p {
     height: 50px;
     display: flex;
     flex-direction: row;
-
   }
 
   .burger-button {
@@ -805,6 +885,28 @@ p {
     pointer-events: all;
   }
 
+  /* .register-dropdown {
+    position: absolute;
+    opacity: 0;
+    z-index: 10;
+    top: 50px;
+    right: 20px;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+   
+    border-radius: 5px;
+    padding: 20px;
+    pointer-events: none;
+    transition: all 0.4s;
+  }
+
+  .register-dropdown.active {
+    opacity: 1.0;
+    pointer-events: all;
+  } */
+
   .content-container {
     padding: 0px;
   }
@@ -825,5 +927,20 @@ p {
 
   .profile-inner {
     padding: 20px;
+  }
+
+  .login-content-inner {
+    flex-direction: column;
+    padding-top: 0px;
+  }
+
+   .auth-inner {
+    width: 300px;
+    padding: 10px 20px;
+   
+  }
+
+  .home-content-inner2-inner {
+    flex-direction: column;
   }
 }

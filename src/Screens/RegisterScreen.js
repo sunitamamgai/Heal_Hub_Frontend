@@ -56,15 +56,13 @@ const RegisterScreen = () => {
 
   return (
     <>
-      
+      <div className="sec-home-body-container">
         <div className="login-content-inner">
-          
-          <img className="home-1-img" src={registrationimg} alt="#" />
-         
+          <img className="auth-img" src={registrationimg} alt="#" />
           <div className="auth-inner">
             <form onSubmit={handleSubmit}>
-              <p className="bold-300">
-              <span class="material-icons">person_add </span>Register
+              <p className="align-centre bold-300">
+                <span class="material-icons">person_add </span>Register
               </p>
               <div className="form-group">
                 <label className="font-small">Username</label>
@@ -136,7 +134,7 @@ const RegisterScreen = () => {
             </form>
           </div>
         </div>
-     
+      </div>
     </>
   );
 };
