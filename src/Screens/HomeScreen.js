@@ -27,31 +27,22 @@ const HomeScreen = () => {
                 Electronic Health Record Management system, where you can store
                 your health data safely.
               </p>
+              <div className="register-home-container"> 
+                <button onClick={handleClick} className="btn btn-primary home-btn">Register</button>
               
-              <button onClick={handleClick} className="btn btn-primary home-btn">Register</button>
-              {/* <div className="">  
                 <div className={"register-dropdown" + (click ? " active" : "")}>
-                  <Link to="/"  onClick={handleClick} style={{ textDecoration: "none" }}>
-                    <div className="">Home</div>
+                  <Link to="/register" style={{textDecoration:"none"}}>
+                    <div className="hover-li">Patient's Registration</div>
                   </Link>
-                  <Link to="/login"  onClick={handleClick} style={{ textDecoration: "none" }}>
-                    <div className="">Login</div>
-                  </Link>
-                  <Link to="/register"  onClick={handleClick} style={{ textDecoration: "none" }}>
-                    <div className="">Register</div>
-                  </Link>
+                  <Link to="/doctorregister" style={{textDecoration:"none"}}>  
+                    <div className="hover-li">Doctor's Registration </div>
+                  </Link>  
                 </div>
-              </div>   */}
+              </div>  
             </div>
             <img className="home-1-img" src={home} alt="#" />
         </div>
         <div className="home-content-inner2">
-          {/* <div className="heading">
-            <p className="bold-500">
-              <span className="icon-size material-icons">article</span> About
-            </p>
-          </div> */}
-
           <div className="home-content-inner2-inner">
             <div class="card text-center" style={{ width: "100%",  backgroundColor: "#212925",
                 color: "white" }}>
@@ -124,7 +115,7 @@ const HomeScreen = () => {
                   patient’s health record with ease and will be able to serve
                   their best for the care and treatment of the patient.
                 </p>
-                <Link to="/register">
+                <Link to="/doctorregister">
                   <button className="btn btn-primary home-btn">
                     Register as doctor
                   </button>

@@ -19,7 +19,7 @@ body {
   overflow: hidden;
   font-family: "Roboto","Poppins", "sans-serif", cursive;
   /* background-color: #393e46; */
-  background-image: linear-gradient(to left,#393e46, #2d3436, #393e46);
+  /* background-image: linear-gradient(to left,#393e46, #2d3436, #393e46); */
 }
 
 @media print {
@@ -57,6 +57,10 @@ button:active {
   font-family: "Poppins";
 }
 
+.roboto-font {
+  font-family: "Roboto";
+  font-weight: 700;
+}
 
 .icon-size {
   font-size: 70px;
@@ -114,6 +118,7 @@ li {
   margin: 5px;
   transition: 0.5s;
 }
+
 .active {
   background: linear-gradient(to right, #393e46, #2d3436, #393e46 95%, #a7d7c5 5%);
   border-radius: 2px;
@@ -202,8 +207,7 @@ ul .menu-ul-list li {
 
 .nav-container {
   width: 100%;
-  background-image: linear-gradient(to left,#212521, #2d3436, #212521);
-  /* background-color: #212529; */
+  background-image: linear-gradient(to right,#212521, #212531, #212521, #212521);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
   z-index: 2;
   display: flex;
@@ -320,15 +324,20 @@ ul .menu-ul-list li {
 .home-content-inner {
   width: 100%;
   height: auto;
-  background: #ffffff;
+  
   padding: 90px 100px 90px 100px;
   transition: all 0.3s;
-  /* background-image: url("./assets/Images/HEALHUB-BUBBLES.png");
-  background-size: cover; */
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  
+
+  background-color: #212121;
+  color: white;
+  border-radius: 0px 0px 50px 0px;
+
+
 }
 
 .qrcode {
@@ -611,8 +620,47 @@ p {
 .healhub-frontline {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
+  padding: 20px 30px;
+}
 
+.register-home-container {
+  width: 100%;
+}
+
+
+.register-dropdown {
+  position: relative;
+  opacity: 0;
+  z-index: 10;
+  top: 10px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: space-around;
+  border-radius: 5px;
+  padding: 10px;
+  pointer-events: none;
+  transition: all 0.4s;
+ 
+}
+
+.register-dropdown.active {
+  opacity: 1.0;
+  pointer-events: all;
+} 
+
+.hover-li {
+  padding: 10px 20px;
+  width: 95%;
+  transition: all 0.5s;
+}
+
+.hover-li:hover {
+  background-color: #282c34;
+  border-radius: 10px;
 }
 
 /*---------------------------MEDIA QUERY FOR 1221 PX-----------------------------------------*/
@@ -705,8 +753,12 @@ p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 50px 30px 30px 30px;
+    padding: 100px 30px 30px 30px;
 
+  }
+
+  .healhub-frontline {
+    align-items: center;
   }
 
   .qr-container {
@@ -857,7 +909,7 @@ p {
   .burger-button {
     position: relative;
     margin-right: 10px;
-    background-color: #212529;
+    background-color: #212521;
     color: white;
     border: none;
   }
@@ -884,28 +936,6 @@ p {
     opacity: 1.0;
     pointer-events: all;
   }
-
-  /* .register-dropdown {
-    position: absolute;
-    opacity: 0;
-    z-index: 10;
-    top: 50px;
-    right: 20px;
-   
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-   
-    border-radius: 5px;
-    padding: 20px;
-    pointer-events: none;
-    transition: all 0.4s;
-  }
-
-  .register-dropdown.active {
-    opacity: 1.0;
-    pointer-events: all;
-  } */
 
   .content-container {
     padding: 0px;
